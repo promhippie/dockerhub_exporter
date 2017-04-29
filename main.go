@@ -17,19 +17,28 @@ import (
 )
 
 var (
+	// showVersion is a flag to display the current version.
 	showVersion = flag.Bool("version", false, "Print version information")
 
+	// listenAddress defines the local address binding for the server.
 	listenAddress = flag.String("web.listen-address", ":9105", "Address to listen on for web interface and telemetry")
-	metricsPath   = flag.String("web.telemetry-path", "/metrics", "Path to expose metrics of the exporter")
 
-	orgs  StringSlice
+	// metricsPath defines the path to access the metrics.
+	metricsPath = flag.String("web.telemetry-path", "/metrics", "Path to expose metrics of the exporter")
+
+	// orgs defines the organizations to export.
+	orgs StringSlice
+
+	// repos defines the repositories to export.
 	repos StringSlice
 )
 
+// init registers the collector version.
 func init() {
 	prometheus.MustRegister(version.NewCollector("dockerhub_exporter"))
 }
 
+// main simply initializes this tool.
 func main() {
 	flag.Var(&orgs, "dockerhub.org", "Organizations to watch on Docker Hub")
 	flag.Var(&repos, "dockerhub.repo", "Repositories to watch on Docker Hub")
@@ -63,15 +72,15 @@ func main() {
 	}
 }
 
-// StringSlice
+// StringSlice represents a custom string slice flag.
 type StringSlice []string
 
-// String
+// String represents the string slice as a string.
 func (ss *StringSlice) String() string {
 	return strings.Join(*ss, ",")
 }
 
-// Set
+// Set appends the string slice value to the current list.
 func (ss *StringSlice) Set(value string) error {
 	if value != "" {
 		*ss = append(*ss, strings.Split(strings.Replace(value, " ", "", -1), ",")...)
