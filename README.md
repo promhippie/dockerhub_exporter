@@ -18,7 +18,7 @@ If you are missing something just write us on our nice [Gitter](https://gitter.i
 
 ```bash
 # docker run -ti --rm tboerger/dockerhub-exporter -h
-Usage of dockerhub_exporter:
+Usage of /bin/dockerhub_exporter:
   -dockerhub.org value
       Organizations to watch on Docker Hub
   -dockerhub.repo value
