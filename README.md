@@ -57,22 +57,22 @@ make test build
 dockerhub_automated{owner="tboerger",repo="redirects"} 0
 # HELP dockerhub_exporter_build_info A metric with a constant '1' value labeled by version, revision, branch, and goversion from which dockerhub_exporter was built.
 # TYPE dockerhub_exporter_build_info gauge
-dockerhub_exporter_build_info{branch="HEAD",goversion="go1.8.1",revision="HEAD",version="0.1.0"} 1
+dockerhub_exporter_build_info{branch="HEAD",goversion="go1.8.1",revision="d1d5c9884f3d447a29348cad700c28758a8c146c",version="0.2.0"} 1
 # HELP dockerhub_pulls How often have this repository been pulled
 # TYPE dockerhub_pulls gauge
-dockerhub_pulls{owner="tboerger",repo="redirects"} 5329
+dockerhub_pulls{owner="tboerger",repo="redirects"} 6084
 # HELP dockerhub_stars How often have this repository been stared
 # TYPE dockerhub_stars gauge
 dockerhub_stars{owner="tboerger",repo="redirects"} 0
 # HELP dockerhub_status What is the current status of the repository
 # TYPE dockerhub_status gauge
 dockerhub_status{owner="tboerger",repo="redirects"} 1
+# HELP dockerhub_up Check if Docker Hub response can be processed
+# TYPE dockerhub_up gauge
+dockerhub_up 1
 # HELP dockerhub_updated A timestamp when the repository have been updated
 # TYPE dockerhub_updated gauge
 dockerhub_updated{owner="tboerger",repo="redirects"} 1.493281295e+09
-# HELP dockerhub_valid_response Check if Docker Hub response can be processed
-# TYPE dockerhub_valid_response gauge
-dockerhub_valid_response 1
 ```
 
 
