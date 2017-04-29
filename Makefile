@@ -1,5 +1,6 @@
+GO := GO15VENDOREXPERIMENT=1 go
 PROMU := $(GOPATH)/bin/promu
-PKGS := $(shell go list ./... | grep -v /vendor/)
+PKGS := $(shell $(GO) list ./... | grep -v /vendor/)
 
 PREFIX ?= $(shell pwd)
 BIN_DIR ?= $(shell pwd)
@@ -14,15 +15,15 @@ style:
 
 test:
 	@echo ">> running tests"
-	@go test -short $(PKGS)
+	@$(GO) test -short $(PKGS)
 
 format:
 	@echo ">> formatting code"
-	@go fmt $(PKGS)
+	@$(GO) fmt $(PKGS)
 
 vet:
 	@echo ">> vetting code"
-	@go vet $(PKGS)
+	@$(GO) vet $(PKGS)
 
 build: promu
 	@echo ">> building binaries"
@@ -38,7 +39,7 @@ docker:
 
 promu:
 	@which promu > /dev/null; if [ $$? -ne 0 ]; then \
-		@go get -u github.com/prometheus/promu; \
+		$(GO) get -u github.com/prometheus/promu; \
 	fi
 
 .PHONY: all style format build test vet tarball docker promu
