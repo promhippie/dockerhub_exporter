@@ -21,7 +21,7 @@ var (
 	showVersion = flag.Bool("version", false, "Print version information")
 
 	// listenAddress defines the local address binding for the server.
-	listenAddress = flag.String("web.listen-address", ":9105", "Address to listen on for web interface and telemetry")
+	listenAddress = flag.String("web.listen-address", ":9505", "Address to listen on for web interface and telemetry")
 
 	// metricsPath defines the path to access the metrics.
 	metricsPath = flag.String("web.telemetry-path", "/metrics", "Path to expose metrics of the exporter")
