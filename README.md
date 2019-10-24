@@ -30,7 +30,7 @@ Usage of /bin/dockerhub_exporter:
   -version
       Print version information
   -web.listen-address string
-      Address to listen on for web interface and telemetry (default ":9105")
+      Address to listen on for web interface and telemetry (default ":9505")
   -web.telemetry-path string
       Path to expose metrics of the exporter (default "/metrics")
 ```
