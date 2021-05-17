@@ -1,0 +1,19 @@
+baseURL = "https://promhippie.github.io/dockerhub_exporter/"
+languageCode = "en-us"
+title = "DockerHub Exporter"
+pygmentsUseClasses = true
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[blackfriday]
+  angledQuotes = true
+  fractions = false
+  plainIDAnchors = true
+  smartlists = true
+  extensions = ["hardLineBreak"]
+
+[params]
+  author = "Thomas Boerger"
+  description = "Export DockerHub metrics for Prometheus"
+  keywords = "prometheus, exporter, dockerhub"
