@@ -3,7 +3,7 @@ module github.com/promhippie/dockerhub_exporter
 go 1.12
 
 require (
-	github.com/go-chi/chi/v5 v5.0.2
+	github.com/go-chi/chi/v5 v5.0.3
 	github.com/go-kit/kit v0.10.0
 	github.com/jackspirou/syscerts v0.0.0-20160531025014-b68f5469dff1
 	github.com/joho/godotenv v1.3.0
