@@ -31,13 +31,13 @@ func main() {
 	metrics := make([]metric, 0)
 
 	metrics = append(metrics, metric{
-		Name:   "github_request_duration_seconds",
+		Name:   "dockerhub_request_duration_seconds",
 		Help:   "Histogram of latencies for requests to the api per collector",
 		Labels: []string{"collector"},
 	})
 
 	metrics = append(metrics, metric{
-		Name:   "github_request_nil_total",
+		Name:   "dockerhub_request_failures_total",
 		Help:   "Total number of failed requests to the api per collector",
 		Labels: []string{"collector"},
 	})

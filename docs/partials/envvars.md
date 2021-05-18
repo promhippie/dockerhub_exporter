@@ -25,11 +25,11 @@ DOCKERHUB_EXPORTER_PASSWORD
 DOCKERHUB_EXPORTER_ORG
 : Organizations to scrape metrics from, comma-separated list
 
+DOCKERHUB_EXPORTER_USER
+: Users to scrape metrics from, comma-separated list
+
 DOCKERHUB_EXPORTER_REPO
 : Repositories to scrape metrics from, comma-separated list
-
-DOCKERHUB_EXPORTER_COLLECTOR_ORGS
-: Enable collector for orgs, defaults to `true`
 
 DOCKERHUB_EXPORTER_COLLECTOR_REPOS
 : Enable collector for repos, defaults to `true`
