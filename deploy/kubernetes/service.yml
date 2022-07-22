@@ -1,0 +1,22 @@
+---
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: dockerhub-exporter
+  labels:
+    app.kubernetes.io/name: dockerhub-exporter
+    app.kubernetes.io/component: exporter
+
+spec:
+  selector:
+    app.kubernetes.io/name: dockerhub-exporter
+    app.kubernetes.io/component: exporter
+
+  ports:
+    - name: http
+      port: 9505
+      targetPort: http
+      protocol: TCP
+
+...
