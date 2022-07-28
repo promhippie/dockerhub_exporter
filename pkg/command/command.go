@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/go-kit/kit/log/level"
+	"github.com/go-kit/log/level"
 	"github.com/promhippie/dockerhub_exporter/pkg/action"
 	"github.com/promhippie/dockerhub_exporter/pkg/config"
 	"github.com/promhippie/dockerhub_exporter/pkg/version"
