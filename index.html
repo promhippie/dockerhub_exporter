@@ -2,7 +2,7 @@
 
 <html id="html" lang="en-us">
 	<head>
-	<meta name="generator" content="Hugo 0.55.5" />
+	<meta name="generator" content="Hugo 0.98.0" />
 		<meta http-equiv="content-type" content="text/html;charset=utf-8">
 		<meta name="viewport" content="width=device-width"/>
 
@@ -10,7 +10,7 @@
 			DockerHub Exporter
 		</title>
 
-		<meta name="description" content="Export DockerHub metrics for Prometheus">
+		<meta name="description" content="Prometheus exporter for DockerHub">
 		<meta name="author" content="Thomas Boerger">
 
 		<link rel="stylesheet" href="syntax.css" />
@@ -361,14 +361,18 @@
 				</h1>
 
 				<p>
-					Export DockerHub metrics for Prometheus
+					Prometheus exporter for DockerHub
 				</p>
 			</header>
 
 			<nav>
 				
 					<a href="#getting-started">
-						Getting Started
+						Usage
+					</a>
+				
+					<a href="#kubernetes">
+						Kubernetes
 					</a>
 				
 					<a href="#building">
@@ -386,7 +390,7 @@
 			<section id="getting-started">
 				<h1>
 					<a href="#getting-started">
-						Getting Started
+						Usage
 					</a>
 
 					<small>
@@ -397,154 +401,228 @@
 				</h1>
 
 				<h2 id="installation">Installation</h2>
-
-<p>We won&rsquo;t cover further details how to properly setup <a href="https://prometheus.io">Prometheus</a> itself, we will only cover some basic setup based on <a href="https://docs.docker.com/compose/">docker-compose</a>. But if you want to run this exporter without <a href="https://docs.docker.com/compose/">docker-compose</a> you should be able to adopt that to your needs.</p>
-
-<p>First of all we need to prepare a configuration for <a href="https://prometheus.io">Prometheus</a> that includes the exporter as a target based on a static host mapping which is just the <a href="https://docs.docker.com/compose/">docker-compose</a> container name, e.g. <code>dockerhub_exporter</code>.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">global<span class="p">:</span><span class="w">
-</span><span class="w">  </span>scrape_interval<span class="p">:</span><span class="w"> </span>1m<span class="w">
-</span><span class="w">  </span>scrape_timeout<span class="p">:</span><span class="w"> </span>10s<span class="w">
-</span><span class="w">  </span>evaluation_interval<span class="p">:</span><span class="w"> </span>1m<span class="w">
-</span><span class="w">
-</span><span class="w"></span>scrape_configs<span class="p">:</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>job_name<span class="p">:</span><span class="w"> </span>github<span class="w">
-</span><span class="w">  </span>static_configs<span class="p">:</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>targets<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>dockerhub_exporter<span class="p">:</span><span class="m">9505</span></code></pre></div>
-
-<p>After preparing the configuration we need to create the <code>docker-compose.yml</code> within the same folder, this <code>docker-compose.yml</code> starts a simple <a href="https://prometheus.io">Prometheus</a> instance together with the exporter. Don&rsquo;t forget to update the exporter envrionment variables with the required credentials.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span>volumes<span class="p">:</span><span class="w">
-</span><span class="w">  </span>prometheus<span class="p">:</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span>services<span class="p">:</span><span class="w">
-</span><span class="w">  </span>prometheus<span class="p">:</span><span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>prom/prometheus<span class="p">:</span>latest<span class="w">
-</span><span class="w">    </span>restart<span class="p">:</span><span class="w"> </span>always<span class="w">
-</span><span class="w">    </span>ports<span class="p">:</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span><span class="m">9090</span><span class="p">:</span><span class="m">9090</span><span class="w">
-</span><span class="w">    </span>volumes<span class="p">:</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>prometheus<span class="p">:</span>/prometheus<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>./prometheus.yml<span class="p">:</span>/etc/prometheus/prometheus.yml<span class="w">
-</span><span class="w">
-</span><span class="w">  </span>dockerhub_exporter<span class="p">:</span><span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>promhippie/dockerhub-exporter<span class="p">:</span>latest<span class="w">
-</span><span class="w">    </span>restart<span class="p">:</span><span class="w"> </span>always<span class="w">
-</span><span class="w">    </span>environment<span class="p">:</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>DOCKERHUB_EXPORTER_USERNAME=octocat<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>DOCKERHUB_EXPORTER_PASSWORD=ypassword<span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>DOCKERHUB_EXPORTER_LOG_PRETTY=<span class="kc">true</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>DOCKERHUB_EXPORTER_ORG=promhippie</code></pre></div>
-
-<p>Since our <code>latest</code> Docker tag always refers to the <code>master</code> branch of the Git repository you should always use some fixed version. You can see all available tags at our <a href="https://hub.docker.com/r/promhippie/dockerhub-exporter/tags/">DockerHub repository</a>, there you will see that we also provide a manifest, you can easily start the exporter on various architectures without any change to the image name. You should apply a change like this to the <code>docker-compose.yml</code>:</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff">  dockerhub_exporter:
-<span class="gd">-   image: promhippie/dockerhub-exporter:latest
-</span><span class="gd"></span><span class="gi">+   image: promhippie/dockerhub-exporter:1.0.0
-</span><span class="gi"></span>    restart: always
-    environment:
-      - DOCKERHUB_EXPORTER_USERNAME=octocat
-      - DOCKERHUB_EXPORTER_PASSWORD=ypassword
-      - DOCKERHUB_EXPORTER_LOG_PRETTY=true
-      - DOCKERHUB_EXPORTER_ORG=promhippie
-</code></pre></div>
-
-<p>If you want to access the exporter directly you should bind it to a local port, otherwise only <a href="https://prometheus.io">Prometheus</a> will have access to the exporter. For debugging purpose or just to discover all available metrics directly you can apply this change to your <code>docker-compose.yml</code>, after that you can access it directly at <a href="http://localhost:9505/metrics">http://localhost:9505/metrics</a>:</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff">  dockerhub_exporter:
-    image: promhippie/dockerhub-exporter:latest
-    restart: always
-<span class="gi">+   ports:
-</span><span class="gi">+     - 127.0.0.1:9505:9505
-</span><span class="gi"></span>    environment:
-      - DOCKERHUB_EXPORTER_USERNAME=octocat
-      - DOCKERHUB_EXPORTER_PASSWORD=ypassword
-      - DOCKERHUB_EXPORTER_LOG_PRETTY=true
-      - DOCKERHUB_EXPORTER_ORG=promhippie
-</code></pre></div>
-
-<p>Finally the exporter should be configured fine, let&rsquo;s start this stack with <a href="https://docs.docker.com/compose/">docker-compose</a>, you just need to execute <code>docker-compose up</code> within the directory where you have stored the <code>prometheus.yml</code> and <code>docker-compose.yml</code>.</p>
-
-<p>That&rsquo;s all, the exporter should be up and running. Have fun with it and hopefully you will gather interesting metrics and never run into issues. You can access the exporter at <a href="http://localhost:9505/metrics">http://localhost:9505/metrics</a> and <a href="https://prometheus.io">Prometheus</a> at <a href="http://localhost:9090">http://localhost:9090</a>.</p>
-
+<p>We won&rsquo;t cover further details how to properly setup <a href="https://prometheus.io">Prometheus</a>
+itself, we will only cover some basic setup based on <a href="https://docs.docker.com/compose/">docker-compose</a>.
+But if you want to run this exporter without <a href="https://docs.docker.com/compose/">docker-compose</a> you
+should be able to adopt that to your needs.</p>
+<p>First of all we need to prepare a configuration for <a href="https://prometheus.io">Prometheus</a>
+that includes the exporter based on a static configuration with the container
+name as a hostname:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">global</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scrape_interval</span><span class="p">:</span><span class="w"> </span><span class="l">1m</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scrape_timeout</span><span class="p">:</span><span class="w"> </span><span class="l">10s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">evaluation_interval</span><span class="p">:</span><span class="w"> </span><span class="l">1m</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">scrape_configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l">dockerhub</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">static_configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">targets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">dockerhub_exporter:9505</span></span></span></code></pre></div>
+<p>After preparing the configuration we need to create the <code>docker-compose.yml</code>
+within the same folder, this <code>docker-compose.yml</code> starts a simple
+<a href="https://prometheus.io">Prometheus</a> instance together with the exporter. Don&rsquo;t forget to
+update the envrionment variables with the required credentials.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">prometheus</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">prometheus</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">prom/prometheus:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">9090</span><span class="p">:</span><span class="m">9090</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">prometheus:/prometheus</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./prometheus.yml:/etc/prometheus/prometheus.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dockerhub_exporter</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">promhippie/dockerhub-exporter:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DOCKERHUB_EXPORTER_USERNAME=octocat</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DOCKERHUB_EXPORTER_PASSWORD=p455w0rd</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DOCKERHUB_EXPORTER_ORG=promhippie</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DOCKERHUB_EXPORTER_LOG_PRETTY=true</span></span></span></code></pre></div>
+<p>Since our <code>latest</code> tag always refers to the <code>master</code> branch of the Git
+repository you should always use some fixed version. You can see all available
+tags at <a href="https://hub.docker.com/r/promhippie/dockerhub-exporter/tags/">DockerHub</a> or <a href="https://quay.io/repository/promhippie/dockerhub-exporter?tab=tags">Quay</a>, there you will see that we
+also provide a manifest, you can easily start the exporter on various
+architectures without any change to the image name. You should apply a change
+like this to the <code>docker-compose.yml</code> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl">  dockerhub_exporter:
+</span></span><span class="line"><span class="cl"><span class="gd">-   image: promhippie/dockerhub-exporter:latest
+</span></span></span><span class="line"><span class="cl"><span class="gd"></span><span class="gi">+   image: promhippie/dockerhub-exporter:1.0.0
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span>    restart: always
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      - DOCKERHUB_EXPORTER_USERNAME=octocat
+</span></span><span class="line"><span class="cl">      - DOCKERHUB_EXPORTER_PASSWORD=p455w0rd
+</span></span><span class="line"><span class="cl">      - DOCKERHUB_EXPORTER_ORG=promhippie
+</span></span><span class="line"><span class="cl">      - DOCKERHUB_EXPORTER_LOG_PRETTY=true
+</span></span></code></pre></div>
+<p>If you want to access the exporter directly you should bind it to a local port,
+otherwise only <a href="https://prometheus.io">Prometheus</a> will have access to the exporter. For
+debugging purpose or just to discover all available metrics directly you can
+apply this change to your <code>docker-compose.yml</code>, after that you can access it
+directly at <a href="http://localhost:9505/metrics">http://localhost:9505/metrics</a>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl">  dockerhub-exporter:
+</span></span><span class="line"><span class="cl">    image: promhippie/dockerhub-exporter:latest
+</span></span><span class="line"><span class="cl">    restart: always
+</span></span><span class="line"><span class="cl"><span class="gi">+   ports:
+</span></span></span><span class="line"><span class="cl"><span class="gi">+     - 127.0.0.1:9505:9505
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span>    environment:
+</span></span><span class="line"><span class="cl">      - DOCKERHUB_EXPORTER_USERNAME=octocat
+</span></span><span class="line"><span class="cl">      - DOCKERHUB_EXPORTER_PASSWORD=p455w0rd
+</span></span><span class="line"><span class="cl">      - DOCKERHUB_EXPORTER_ORG=promhippie
+</span></span><span class="line"><span class="cl">      - DOCKERHUB_EXPORTER_LOG_PRETTY=true
+</span></span></code></pre></div>
+<p>If you want to secure the access to the exporter you can provide a web config.
+You just need to provide a path to the config file in order to enable the
+support for it, for details about the config format look at the
+<a href="#web-configuration">documentation</a> section:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="cl">  dockerhub_exporter:
+</span></span><span class="line"><span class="cl">    image: promhippie/dockerhub-exporter:latest
+</span></span><span class="line"><span class="cl">    restart: always
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl"><span class="gi">+     - DOCKERHUB_EXPORTER_WEB_CONFIG=path/to/web-config.json
+</span></span></span><span class="line"><span class="cl"><span class="gi"></span>      - DOCKERHUB_EXPORTER_USERNAME=octocat
+</span></span><span class="line"><span class="cl">      - DOCKERHUB_EXPORTER_PASSWORD=p455w0rd
+</span></span><span class="line"><span class="cl">      - DOCKERHUB_EXPORTER_ORG=promhippie
+</span></span><span class="line"><span class="cl">      - DOCKERHUB_EXPORTER_LOG_PRETTY=true
+</span></span></code></pre></div>
+<p>Finally the exporter should be configured fine, let&rsquo;s start this stack with
+<a href="https://docs.docker.com/compose/">docker-compose</a>, you just need to execute <code>docker-compose up</code> within
+the directory where you have stored the <code>prometheus.yml</code> and
+<code>docker-compose.yml</code>.</p>
+<p>That&rsquo;s all, the exporter should be up and running. Have fun with it and
+hopefully you will gather interesting metrics and never run into issues. You can
+access the exporter at
+<a href="http://localhost:9505/metrics">http://localhost:9505/metrics</a> and
+<a href="https://prometheus.io">Prometheus</a> at <a href="http://localhost:9090">http://localhost:9090</a>.</p>
 <h2 id="configuration">Configuration</h2>
-
 <dl>
-<dt>DOCKERHUB_EXPORTER_LOG_LEVEL<br /></dt>
-<dd>Only log messages with given severity, defaults to <code>info</code><br />
-<br /></dd>
-<dt>DOCKERHUB_EXPORTER_LOG_PRETTY<br /></dt>
-<dd>Enable pretty messages for logging, defaults to <code>false</code><br />
-<br /></dd>
-<dt>DOCKERHUB_EXPORTER_WEB_ADDRESS<br /></dt>
-<dd>Address to bind the metrics server, defaults to <code>0.0.0.0:9505</code><br />
-<br /></dd>
-<dt>DOCKERHUB_EXPORTER_WEB_PATH<br /></dt>
-<dd>Path to bind the metrics server, defaults to <code>/metrics</code><br />
-<br /></dd>
-<dt>DOCKERHUB_EXPORTER_WEB_TIMEOUT<br /></dt>
-<dd>Server metrics endpoint timeout, defaults to <code>10s</code><br />
-<br /></dd>
-<dt>DOCKERHUB_EXPORTER_REQUEST_TIMEOUT<br /></dt>
-<dd>Timeout requesting DockerHub API, defaults to <code>5s</code><br />
-<br /></dd>
-<dt>DOCKERHUB_EXPORTER_USERNAME<br /></dt>
-<dd>Username for the DockerHub authentication<br />
-<br /></dd>
-<dt>DOCKERHUB_EXPORTER_PASSWORD<br /></dt>
-<dd>Password for the DockerHub authentication<br />
-<br /></dd>
-<dt>DOCKERHUB_EXPORTER_ORG<br /></dt>
-<dd>Organizations to scrape metrics from, comma-separated list<br />
-<br /></dd>
-<dt>DOCKERHUB_EXPORTER_USER<br /></dt>
-<dd>Users to scrape metrics from, comma-separated list<br />
-<br /></dd>
-<dt>DOCKERHUB_EXPORTER_REPO<br /></dt>
-<dd>Repositories to scrape metrics from, comma-separated list<br />
-<br /></dd>
-<dt>DOCKERHUB_EXPORTER_COLLECTOR_REPOS<br /></dt>
-<dd>Enable collector for repos, defaults to <code>true</code><br /></dd>
+<dt>DOCKERHUB_EXPORTER_LOG_LEVEL</dt>
+<dd>Only log messages with given severity, defaults to <code>info</code></dd>
+<dt>DOCKERHUB_EXPORTER_LOG_PRETTY</dt>
+<dd>Enable pretty messages for logging, defaults to <code>false</code></dd>
+<dt>DOCKERHUB_EXPORTER_WEB_ADDRESS</dt>
+<dd>Address to bind the metrics server, defaults to <code>0.0.0.0:9505</code></dd>
+<dt>DOCKERHUB_EXPORTER_WEB_PATH</dt>
+<dd>Path to bind the metrics server, defaults to <code>/metrics</code></dd>
+<dt>DOCKERHUB_EXPORTER_WEB_TIMEOUT</dt>
+<dd>Server metrics endpoint timeout, defaults to <code>10s</code></dd>
+<dt>DOCKERHUB_EXPORTER_REQUEST_TIMEOUT</dt>
+<dd>Timeout requesting DockerHub API, defaults to <code>5s</code></dd>
+<dt>DOCKERHUB_EXPORTER_USERNAME</dt>
+<dd>Username for the DockerHub authentication</dd>
+<dt>DOCKERHUB_EXPORTER_PASSWORD</dt>
+<dd>Password for the DockerHub authentication</dd>
+<dt>DOCKERHUB_EXPORTER_ORG</dt>
+<dd>Organizations to scrape metrics from, comma-separated list</dd>
+<dt>DOCKERHUB_EXPORTER_USER</dt>
+<dd>Users to scrape metrics from, comma-separated list</dd>
+<dt>DOCKERHUB_EXPORTER_REPO</dt>
+<dd>Repositories to scrape metrics from, comma-separated list</dd>
+<dt>DOCKERHUB_EXPORTER_COLLECTOR_REPOS</dt>
+<dd>Enable collector for repos, defaults to <code>true</code></dd>
 </dl>
-
+<h3 id="web-configuration">Web Configuration</h3>
+<p>If you want to secure the service by TLS or by some basic authentication you can
+provide a <code>YAML</code> configuration file whch follows the <a href="https://prometheus.io">Prometheus</a>
+toolkit format. You can see a full configration example within the
+<a href="https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md">toolkit documentation</a>.</p>
 <h2 id="metrics">Metrics</h2>
-
-<p>You can a rough list of available metrics below, additionally to these metrics you will always get the standard metrics exported by the Golang client of <a href="https://prometheus.io">Prometheus</a>. If you want to know more about these standard metrics take a look at the <a href="https://github.com/prometheus/client_golang/blob/master/prometheus/process_collector.go">process collector</a> and the <a href="https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go">Go collector</a>.</p>
-
+<p>You can a rough list of available metrics below, additionally to these metrics
+you will always get the standard metrics exported by the Golang client of
+<a href="https://prometheus.io">Prometheus</a>. If you want to know more about these standard metrics
+take a look at the <a href="https://github.com/prometheus/client_golang/blob/master/prometheus/process_collector.go">process collector</a> and the
+<a href="https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go">Go collector</a>.</p>
 <dl>
-<dt>dockerhub_repo_automated{owner, name}<br /></dt>
-<dd>Defines if the repository builds automatically<br />
-<br /></dd>
-<dt>dockerhub_repo_collaborators{owner, name}<br /></dt>
-<dd>How many collaborators are working on that repo<br />
-<br /></dd>
-<dt>dockerhub_repo_migrated{owner, name}<br /></dt>
-<dd>Hsve this repository been migrated<br />
-<br /></dd>
-<dt>dockerhub_repo_private{owner, name}<br /></dt>
-<dd>Is the repository private or public<br />
-<br /></dd>
-<dt>dockerhub_repo_pulls{owner, name}<br /></dt>
-<dd>How often have this repository been pulled<br />
-<br /></dd>
-<dt>dockerhub_repo_stars{owner, name}<br /></dt>
-<dd>How often have this repository been stared<br />
-<br /></dd>
-<dt>dockerhub_repo_status{owner, name}<br /></dt>
-<dd>What is the current status of the repository<br />
-<br /></dd>
-<dt>dockerhub_repo_updated{owner, name}<br /></dt>
-<dd>A timestamp when the repository have been updated<br />
-<br /></dd>
-<dt>dockerhub_request_duration_seconds{collector}<br /></dt>
-<dd>Histogram of latencies for requests to the api per collector<br />
-<br /></dd>
-<dt>dockerhub_request_failures_total{collector}<br /></dt>
-<dd>Total number of failed requests to the api per collector<br /></dd>
+<dt>dockerhub_repo_automated{owner, name}</dt>
+<dd>Defines if the repository builds automatically</dd>
+<dt>dockerhub_repo_collaborators{owner, name}</dt>
+<dd>How many collaborators are working on that repo</dd>
+<dt>dockerhub_repo_migrated{owner, name}</dt>
+<dd>Hsve this repository been migrated</dd>
+<dt>dockerhub_repo_private{owner, name}</dt>
+<dd>Is the repository private or public</dd>
+<dt>dockerhub_repo_pulls{owner, name}</dt>
+<dd>How often have this repository been pulled</dd>
+<dt>dockerhub_repo_stars{owner, name}</dt>
+<dd>How often have this repository been stared</dd>
+<dt>dockerhub_repo_status{owner, name}</dt>
+<dd>What is the current status of the repository</dd>
+<dt>dockerhub_repo_updated{owner, name}</dt>
+<dd>A timestamp when the repository have been updated</dd>
+<dt>dockerhub_request_duration_seconds{collector}</dt>
+<dd>Histogram of latencies for requests to the api per collector</dd>
+<dt>dockerhub_request_failures_total{collector}</dt>
+<dd>Total number of failed requests to the api per collector</dd>
 </dl>
+
+			</section>
+		
+			<section id="kubernetes">
+				<h1>
+					<a href="#kubernetes">
+						Kubernetes
+					</a>
+
+					<small>
+						<a href="#html">
+							Back to Top
+						</a>
+					</small>
+				</h1>
+
+				<h2 id="kubernetes">Kubernetes</h2>
+<p>Currently we are covering the most famous installation methods on Kubernetes,
+you can choose between <a href="https://github.com/kubernetes-sigs/kustomize">Kustomize</a> and <a href="https://helm.sh">Helm</a>.</p>
+<h3 id="kustomize">Kustomize</h3>
+<p>We won&rsquo;t cover the installation of <a href="https://github.com/kubernetes-sigs/kustomize">Kustomize</a> within this guide, to
+get it installed and working please read the upstream documentation. After the
+installation of <a href="https://github.com/kubernetes-sigs/kustomize">Kustomize</a> you just need to prepare a
+<code>kustomization.yml</code> wherever you like similar to this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">kustomize.config.k8s.io/v1beta1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Kustomization</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">dockerhub-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">github.com/promhippie/dockerhub_exporter//deploy/kubernetes?ref=master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">configMapGenerator</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">dockerhub-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">merge</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">literals</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">secretGenerator</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">dockerhub-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">merge</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">literals</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span></span></span></code></pre></div>
+<p>After that you can simply execute <code>kustomize build | kubectl apply -f -</code> to get
+the manifest applied. Generally it&rsquo;s best to use fixed versions of the container
+images, this can be done quite easy, you just need to append this block to your
+<code>kustomization.yml</code> to use this specific version:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">images</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">quay.io/promhippie/dockerhub-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">newTag</span><span class="p">:</span><span class="w"> </span><span class="m">1.1.0</span></span></span></code></pre></div>
+<p>After applying this manifest the exporter should be directly visible within your
+Prometheus instance if you are using the Prometheus Operator as these manifests
+are providing a ServiceMonitor.</p>
+<h3 id="helm">Helm</h3>
+<p>We won&rsquo;t cover the installation of <a href="https://helm.sh">Helm</a> within this guide, to get it
+installed and working please read the upstream documentation. After the
+installation of <a href="https://helm.sh">Helm</a> you just need to execute the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">helm repo add promhippie https://promhippie.github.io/charts
+</span></span></span><span class="line"><span class="cl"><span class="go">helm show values promhippie/dockerhub-exporter
+</span></span></span><span class="line"><span class="cl"><span class="go">helm install dockerhub-exporter promhippie/dockerhub-exporter
+</span></span></span></code></pre></div>
+<p>You can also watch that available values and generally the details of the chart
+provided by us within our <a href="https://github.com/promhippie/charts/tree/master/charts/dockerhub-exporter">chart</a> repository.</p>
+<p>After applying this manifest the exporter should be directly visible within your
+Prometheus instance depending on your installation if you enabled the
+annotations or the service monitor.</p>
 
 			</section>
 		
@@ -561,16 +639,17 @@
 					</small>
 				</h1>
 
-				<p>As this project is built with Go you need to install Go first. The installation of Go is out of the scope of this document, please follow the <a href="https://golang.org/doc/install">official documentation</a>. After the installation of Go you need to get the sources:</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">git clone https://github.com/promhippie/dockerhub_exporter.git
-cd dockerhub_exporter/</code></pre></div>
-
-<p>All required tool besides Go itself are bundled by Go modules, all you need is part of the <code>Makfile</code>:</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">make generate build</code></pre></div>
-
-<p>Finally you should have the binary within the <code>bin/</code> folder now, give it a try with <code>./bin/dockerhub_exporter -h</code> to see all available options.</p>
+				<p>As this project is built with Go you need to install Go first. The installation
+of Go is out of the scope of this document, please follow the
+<a href="https://golang.org/doc/install">official documentation</a>. After the installation of Go you need to get
+the sources:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">git clone https://github.com/promhippie/dockerhub_exporter.git
+</span></span><span class="line"><span class="cl">cd dockerhub_exporter/</span></span></code></pre></div>
+<p>All required tool besides Go itself are bundled, all you need is part of the
+<code>Makfile</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">make generate build</span></span></code></pre></div>
+<p>Finally you should have the binary within the <code>bin/</code> folder now, give it a try
+with <code>./bin/dockerhub_exporter -h</code> to see all available options.</p>
 
 			</section>
 		
@@ -587,7 +666,8 @@ cd dockerhub_exporter/</code></pre></div>
 					</small>
 				</h1>
 
-				This project is licensed under the <a href="https://github.com/promhippie/dockerhub_exporter/blob/master/LICENSE">Apache 2.0</a> license. For the license of the used libraries you have to check the respective sources.
+				This project is licensed under the <a href="https://github.com/promhippie/dockerhub_exporter/blob/master/LICENSE">Apache 2.0</a> license. For the
+license of the used libraries you have to check the respective sources.
 			</section>
 		
 	</body>
