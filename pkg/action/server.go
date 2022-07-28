@@ -36,9 +36,9 @@ func Server(cfg *config.Config, logger log.Logger) error {
 	)
 
 	if err != nil {
-		level.Info(logger).Log(
-			"msg", "Starting metrics server",
-			"addr", cfg.Server.Addr,
+		level.Error(logger).Log(
+			"msg", "Failed to check credentials",
+			"err", err,
 		)
 
 		return err
