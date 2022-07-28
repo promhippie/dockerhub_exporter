@@ -1,6 +1,6 @@
-# Changelog for unreleased
+# Changelog for 1.0.0
 
-The following sections list the changes for unreleased.
+The following sections list the changes for 1.0.0.
 
 ## Summary
 
@@ -14,23 +14,6 @@ The following sections list the changes for unreleased.
    already got within our GitHub exporter.
 
    https://github.com/promhippie/dockerhub_exporter/issues/11
-
-
-# Changelog for 0.1.0
-
-The following sections list the changes for 0.1.0.
-
-## Summary
-
- * Chg #10: Initial release of basic version
-
-## Details
-
- * Change #10: Initial release of basic version
-
-   Just prepared an initial basic version which could be released to the public.
-
-   https://github.com/promhippie/dockerhub_exporter/issues/10
 
 
 # Changelog for 0.2.0
@@ -57,5 +40,22 @@ The following sections list the changes for 0.2.0.
    defined to make sure we always got metrics to gather.
 
    https://github.com/promhippie/dockerhub_exporter/issues/3
+
+
+# Changelog for 0.1.0
+
+The following sections list the changes for 0.1.0.
+
+## Summary
+
+ * Chg #10: Initial release of basic version
+
+## Details
+
+ * Change #10: Initial release of basic version
+
+   Just prepared an initial basic version which could be released to the public.
+
+   https://github.com/promhippie/dockerhub_exporter/issues/10
 
 
