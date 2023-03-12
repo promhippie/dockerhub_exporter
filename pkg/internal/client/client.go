@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"strings"
 
@@ -119,7 +118,7 @@ func (c *Client) Do(r *http.Request, v interface{}) (*Response, error) {
 			}, &ForbiddenError{}
 		}
 
-		body, err := ioutil.ReadAll(resp.Body)
+		body, err := io.ReadAll(resp.Body)
 
 		if err == nil {
 			parsed := make(map[string]string)
@@ -142,7 +141,7 @@ func (c *Client) Do(r *http.Request, v interface{}) (*Response, error) {
 		}, &UnknownError{}
 	}
 
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 
 	if err != nil {
 		return &Response{
@@ -150,7 +149,7 @@ func (c *Client) Do(r *http.Request, v interface{}) (*Response, error) {
 		}, err
 	}
 
-	resp.Body = ioutil.NopCloser(
+	resp.Body = io.NopCloser(
 		bytes.NewReader(
 			body,
 		),
