@@ -65,6 +65,7 @@ jobs:
             promhippie/dockerhub-exporter
             quay.io/promhippie/dockerhub-exporter
           labels: |
+            io.artifacthub.package.readme-url=https://raw.githubusercontent.com/promhippie/dockerhub_exporter/master/README.md
             org.opencontainers.image.vendor=Webhippie
             maintainer=Thomas Boerger <thomas@webhippie.de>
           tags: |
