@@ -539,21 +539,21 @@ you will always get the standard metrics exported by the Golang client of
 take a look at the <a href="https://github.com/prometheus/client_golang/blob/master/prometheus/process_collector.go">process collector</a> and the
 <a href="https://github.com/prometheus/client_golang/blob/master/prometheus/go_collector.go">Go collector</a>.</p>
 <dl>
-<dt>dockerhub_repo_automated{owner, name}</dt>
+<dt>dockerhub_repo_automated{&lt;prometheus.ConstrainedLabel Value&gt;, &lt;prometheus.ConstrainedLabel Value&gt;}</dt>
 <dd>Defines if the repository builds automatically</dd>
-<dt>dockerhub_repo_collaborators{owner, name}</dt>
+<dt>dockerhub_repo_collaborators{&lt;prometheus.ConstrainedLabel Value&gt;, &lt;prometheus.ConstrainedLabel Value&gt;}</dt>
 <dd>How many collaborators are working on that repo</dd>
-<dt>dockerhub_repo_migrated{owner, name}</dt>
+<dt>dockerhub_repo_migrated{&lt;prometheus.ConstrainedLabel Value&gt;, &lt;prometheus.ConstrainedLabel Value&gt;}</dt>
 <dd>Hsve this repository been migrated</dd>
-<dt>dockerhub_repo_private{owner, name}</dt>
+<dt>dockerhub_repo_private{&lt;prometheus.ConstrainedLabel Value&gt;, &lt;prometheus.ConstrainedLabel Value&gt;}</dt>
 <dd>Is the repository private or public</dd>
-<dt>dockerhub_repo_pulls{owner, name}</dt>
+<dt>dockerhub_repo_pulls{&lt;prometheus.ConstrainedLabel Value&gt;, &lt;prometheus.ConstrainedLabel Value&gt;}</dt>
 <dd>How often have this repository been pulled</dd>
-<dt>dockerhub_repo_stars{owner, name}</dt>
+<dt>dockerhub_repo_stars{&lt;prometheus.ConstrainedLabel Value&gt;, &lt;prometheus.ConstrainedLabel Value&gt;}</dt>
 <dd>How often have this repository been stared</dd>
-<dt>dockerhub_repo_status{owner, name}</dt>
+<dt>dockerhub_repo_status{&lt;prometheus.ConstrainedLabel Value&gt;, &lt;prometheus.ConstrainedLabel Value&gt;}</dt>
 <dd>What is the current status of the repository</dd>
-<dt>dockerhub_repo_updated{owner, name}</dt>
+<dt>dockerhub_repo_updated{&lt;prometheus.ConstrainedLabel Value&gt;, &lt;prometheus.ConstrainedLabel Value&gt;}</dt>
 <dd>A timestamp when the repository have been updated</dd>
 <dt>dockerhub_request_duration_seconds{collector}</dt>
 <dd>Histogram of latencies for requests to the api per collector</dd>
