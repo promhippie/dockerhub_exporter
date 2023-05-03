@@ -8,7 +8,7 @@ require (
 	github.com/jackspirou/syscerts v0.0.0-20160531025014-b68f5469dff1
 	github.com/joho/godotenv v1.5.1
 	github.com/oklog/run v1.1.0
-	github.com/prometheus/client_golang v1.15.0
+	github.com/prometheus/client_golang v1.15.1
 	github.com/stretchr/testify v1.8.2
 	github.com/urfave/cli/v2 v2.25.3
 )
