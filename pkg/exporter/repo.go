@@ -8,12 +8,12 @@ import (
 	"github.com/go-kit/log/level"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/promhippie/dockerhub_exporter/pkg/config"
-	"github.com/promhippie/dockerhub_exporter/pkg/internal/client"
+	"github.com/promhippie/dockerhub_exporter/pkg/internal/dockerhub"
 )
 
 // RepoCollector collects metrics about the servers.
 type RepoCollector struct {
-	client   *client.Client
+	client   *dockerhub.Client
 	logger   log.Logger
 	failures *prometheus.CounterVec
 	duration *prometheus.HistogramVec
@@ -32,14 +32,14 @@ type RepoCollector struct {
 }
 
 // NewRepoCollector returns a new RepoCollector.
-func NewRepoCollector(logger log.Logger, c *client.Client, failures *prometheus.CounterVec, duration *prometheus.HistogramVec, cfg config.Target) *RepoCollector {
+func NewRepoCollector(logger log.Logger, client *dockerhub.Client, failures *prometheus.CounterVec, duration *prometheus.HistogramVec, cfg config.Target) *RepoCollector {
 	if failures != nil {
 		failures.WithLabelValues("repo").Add(0)
 	}
 
 	labels := []string{"owner", "name"}
 	return &RepoCollector{
-		client:   c,
+		client:   client,
 		logger:   log.With(logger, "collector", "repo"),
 		failures: failures,
 		duration: duration,
@@ -128,7 +128,7 @@ func (c *RepoCollector) Collect(ch chan<- prometheus.Metric) {
 	defer cancel()
 
 	now := time.Now()
-	repos := make([]*client.Repository, 0)
+	repos := make([]*dockerhub.Repository, 0)
 
 	for _, org := range c.config.Orgs.Value() {
 		result, err := c.client.ByOrg(ctx, org)

@@ -115,6 +115,22 @@ support for it, for details about the config format look at the
       - DOCKERHUB_EXPORTER_LOG_PRETTY=true
 {{< / highlight >}}
 
+If you want to provide the required secrets from a file it's also possible. For
+this use case you can write the secret to a file on any path and reference it
+with the following format:
+
+{{< highlight diff >}}
+  dockerhub_exporter:
+    image: promhippie/dockerhub-exporter:latest
+    restart: always
+    environment:
+-     - DOCKERHUB_EXPORTER_USERNAME=octocat
+-     - DOCKERHUB_EXPORTER_PASSWORD=p455w0rd
++     - DOCKERHUB_EXPORTER_USERNAME=file://path/to/secret/file/with/username
++     - DOCKERHUB_EXPORTER_PASSWORD=file://path/to/secret/file/with/password
+      - DOCKERHUB_EXPORTER_LOG_PRETTY=true
+{{< / highlight >}}
+
 Finally the exporter should be configured fine, let's start this stack with
 [docker-compose][compose], you just need to execute `docker-compose up` within
 the directory where you have stored the `prometheus.yml` and

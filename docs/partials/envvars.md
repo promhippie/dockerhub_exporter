@@ -10,8 +10,14 @@ DOCKERHUB_EXPORTER_WEB_ADDRESS
 DOCKERHUB_EXPORTER_WEB_PATH
 : Path to bind the metrics server, defaults to `/metrics`
 
+DOCKERHUB_EXPORTER_WEB_PPROF
+: Enable pprof debugging for server, defaults to `false`
+
 DOCKERHUB_EXPORTER_WEB_TIMEOUT
 : Server metrics endpoint timeout, defaults to `10s`
+
+DOCKERHUB_EXPORTER_WEB_CONFIG
+: Path to web-config file
 
 DOCKERHUB_EXPORTER_REQUEST_TIMEOUT
 : Timeout requesting DockerHub API, defaults to `5s`
