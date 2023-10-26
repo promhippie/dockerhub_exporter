@@ -1,12 +1,12 @@
-package client
+package dockerhub
 
 import (
 	"context"
 	"fmt"
 )
 
-// ByOrg fetches repositories by organization name.
-func (c *Client) ByOrg(ctx context.Context, name string) ([]*Repository, error) {
+// ByUser fetches repositories by user name.
+func (c *Client) ByUser(ctx context.Context, name string) ([]*Repository, error) {
 	if err := c.Refresh(ctx); err != nil {
 		return nil, fmt.Errorf("failed to refresh auth: %w", err)
 	}
@@ -18,13 +18,13 @@ func (c *Client) ByOrg(ctx context.Context, name string) ([]*Repository, error) 
 		req, err := c.NewRequest(ctx, "GET", path, nil)
 
 		if err != nil {
-			return nil, fmt.Errorf("failed to parse org request: %w", err)
+			return nil, fmt.Errorf("failed to parse user request: %w", err)
 		}
 
 		result := &repositoryResponse{}
 
 		if _, err := c.Do(req, result); err != nil {
-			return nil, fmt.Errorf("failed to fetch org repos: %w", err)
+			return nil, fmt.Errorf("failed to fetch user repos: %w", err)
 		}
 
 		records = append(

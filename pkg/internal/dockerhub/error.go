@@ -1,4 +1,4 @@
-package client
+package dockerhub
 
 // ForbiddenError defines the error if the API endpoint is forbidden.
 type ForbiddenError struct{}

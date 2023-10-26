@@ -1,7 +1,7 @@
 package exporter
 
 import (
-	"github.com/promhippie/dockerhub_exporter/pkg/internal/client"
+	"github.com/promhippie/dockerhub_exporter/pkg/internal/dockerhub"
 )
 
 func boolToFloat64(val bool) float64 {
@@ -12,7 +12,7 @@ func boolToFloat64(val bool) float64 {
 	return 0.0
 }
 
-func appendRepo(slice []*client.Repository, i *client.Repository) []*client.Repository {
+func appendRepo(slice []*dockerhub.Repository, i *dockerhub.Repository) []*dockerhub.Repository {
 	if i == nil {
 		return slice
 	}

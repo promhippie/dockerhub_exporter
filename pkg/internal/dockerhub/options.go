@@ -1,4 +1,4 @@
-package client
+package dockerhub
 
 // Option defines a single option function.
 type Option func(o *Options)
