@@ -5,6 +5,7 @@ package main
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 	"reflect"
 	"sort"
@@ -26,7 +27,7 @@ func main() {
 
 	collectors = append(
 		collectors,
-		exporter.NewRepoCollector(nil, nil, nil, nil, config.Load().Target).Metrics()...,
+		exporter.NewRepoCollector(slog.Default(), nil, nil, nil, config.Load().Target).Metrics()...,
 	)
 
 	metrics := make([]metric, 0)
