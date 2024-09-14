@@ -5,7 +5,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/go-kit/log/level"
 	"github.com/promhippie/dockerhub_exporter/pkg/action"
 	"github.com/promhippie/dockerhub_exporter/pkg/config"
 	"github.com/promhippie/dockerhub_exporter/pkg/version"
@@ -36,10 +35,7 @@ func Run() error {
 			if len(cfg.Target.Orgs.Value()) == 0 &&
 				len(cfg.Target.Users.Value()) == 0 &&
 				len(cfg.Target.Repos.Value()) == 0 {
-				level.Error(logger).Log(
-					"msg", "Missing required org, user or repo",
-				)
-
+				logger.Error("Missing required org, user or repo")
 				return fmt.Errorf("missing required org, user or repo")
 			}
 

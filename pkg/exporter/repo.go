@@ -2,10 +2,9 @@ package exporter
 
 import (
 	"context"
+	"log/slog"
 	"time"
 
-	"github.com/go-kit/log"
-	"github.com/go-kit/log/level"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/promhippie/dockerhub_exporter/pkg/config"
 	"github.com/promhippie/dockerhub_exporter/pkg/internal/dockerhub"
@@ -14,7 +13,7 @@ import (
 // RepoCollector collects metrics about the servers.
 type RepoCollector struct {
 	client   *dockerhub.Client
-	logger   log.Logger
+	logger   *slog.Logger
 	failures *prometheus.CounterVec
 	duration *prometheus.HistogramVec
 	config   config.Target
@@ -32,7 +31,7 @@ type RepoCollector struct {
 }
 
 // NewRepoCollector returns a new RepoCollector.
-func NewRepoCollector(logger log.Logger, client *dockerhub.Client, failures *prometheus.CounterVec, duration *prometheus.HistogramVec, cfg config.Target) *RepoCollector {
+func NewRepoCollector(logger *slog.Logger, client *dockerhub.Client, failures *prometheus.CounterVec, duration *prometheus.HistogramVec, cfg config.Target) *RepoCollector {
 	if failures != nil {
 		failures.WithLabelValues("repo").Add(0)
 	}
@@ -40,7 +39,7 @@ func NewRepoCollector(logger log.Logger, client *dockerhub.Client, failures *pro
 	labels := []string{"owner", "name"}
 	return &RepoCollector{
 		client:   client,
-		logger:   log.With(logger, "collector", "repo"),
+		logger:   logger.With("collector", "repo"),
 		failures: failures,
 		duration: duration,
 		config:   cfg,
@@ -134,8 +133,7 @@ func (c *RepoCollector) Collect(ch chan<- prometheus.Metric) {
 		result, err := c.client.ByOrg(ctx, org)
 
 		if err != nil {
-			level.Error(c.logger).Log(
-				"msg", "Failed to fetch repos",
+			c.logger.Error("Failed to fetch repos",
 				"type", "org",
 				"name", org,
 				"err", err,
@@ -157,8 +155,7 @@ func (c *RepoCollector) Collect(ch chan<- prometheus.Metric) {
 		result, err := c.client.ByUser(ctx, user)
 
 		if err != nil {
-			level.Error(c.logger).Log(
-				"msg", "Failed to fetch repos",
+			c.logger.Error("Failed to fetch repos",
 				"type", "user",
 				"name", user,
 				"err", err,
@@ -180,8 +177,7 @@ func (c *RepoCollector) Collect(ch chan<- prometheus.Metric) {
 		result, err := c.client.ByName(ctx, repo)
 
 		if err != nil {
-			level.Error(c.logger).Log(
-				"msg", "Failed to fetch repos",
+			c.logger.Error("Failed to fetch repos",
 				"type", "repo",
 				"name", repo,
 				"err", err,
@@ -201,8 +197,7 @@ func (c *RepoCollector) Collect(ch chan<- prometheus.Metric) {
 
 	c.duration.WithLabelValues("repo").Observe(time.Since(now).Seconds())
 
-	level.Debug(c.logger).Log(
-		"msg", "Fetched repos",
+	c.logger.Debug("Fetched repos",
 		"count", len(repos),
 		"duration", time.Since(now),
 	)
