@@ -6,8 +6,6 @@ import (
 	"os"
 	"strings"
 	"time"
-
-	"github.com/urfave/cli/v2"
 )
 
 // Server defines the general server configuration.
@@ -29,9 +27,9 @@ type Logs struct {
 type Target struct {
 	Username string
 	Password string
-	Orgs     cli.StringSlice
-	Users    cli.StringSlice
-	Repos    cli.StringSlice
+	Orgs     []string
+	Users    []string
+	Repos    []string
 	Timeout  time.Duration
 }
 

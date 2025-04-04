@@ -129,7 +129,7 @@ func (c *RepoCollector) Collect(ch chan<- prometheus.Metric) {
 	now := time.Now()
 	repos := make([]*dockerhub.Repository, 0)
 
-	for _, org := range c.config.Orgs.Value() {
+	for _, org := range c.config.Orgs {
 		result, err := c.client.ByOrg(ctx, org)
 
 		if err != nil {
@@ -151,7 +151,7 @@ func (c *RepoCollector) Collect(ch chan<- prometheus.Metric) {
 		}
 	}
 
-	for _, user := range c.config.Users.Value() {
+	for _, user := range c.config.Users {
 		result, err := c.client.ByUser(ctx, user)
 
 		if err != nil {
@@ -173,7 +173,7 @@ func (c *RepoCollector) Collect(ch chan<- prometheus.Metric) {
 		}
 	}
 
-	for _, repo := range c.config.Repos.Value() {
+	for _, repo := range c.config.Repos {
 		result, err := c.client.ByName(ctx, repo)
 
 		if err != nil {

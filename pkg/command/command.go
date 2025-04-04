@@ -1,6 +1,7 @@
 package command
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"time"
@@ -8,33 +9,30 @@ import (
 	"github.com/promhippie/dockerhub_exporter/pkg/action"
 	"github.com/promhippie/dockerhub_exporter/pkg/config"
 	"github.com/promhippie/dockerhub_exporter/pkg/version"
-	"github.com/urfave/cli/v2"
+	"github.com/urfave/cli/v3"
 )
 
 // Run parses the command line arguments and executes the program.
 func Run() error {
 	cfg := config.Load()
 
-	app := &cli.App{
+	app := &cli.Command{
 		Name:    "dockerhub_exporter",
 		Version: version.String,
 		Usage:   "DockerHub Exporter",
-		Authors: []*cli.Author{
-			{
-				Name:  "Thomas Boerger",
-				Email: "thomas@webhippie.de",
-			},
+		Authors: []any{
+			"Thomas Boerger <thomas@webhippie.de>",
 		},
 		Flags: RootFlags(cfg),
 		Commands: []*cli.Command{
 			Health(cfg),
 		},
-		Action: func(_ *cli.Context) error {
+		Action: func(_ context.Context, _ *cli.Command) error {
 			logger := setupLogger(cfg)
 
-			if len(cfg.Target.Orgs.Value()) == 0 &&
-				len(cfg.Target.Users.Value()) == 0 &&
-				len(cfg.Target.Repos.Value()) == 0 {
+			if len(cfg.Target.Orgs) == 0 &&
+				len(cfg.Target.Users) == 0 &&
+				len(cfg.Target.Repos) == 0 {
 				logger.Error("Missing required org, user or repo")
 				return fmt.Errorf("missing required org, user or repo")
 			}
@@ -55,7 +53,7 @@ func Run() error {
 		Usage:   "Print the current version of that tool",
 	}
 
-	return app.Run(os.Args)
+	return app.Run(context.Background(), os.Args)
 }
 
 // RootFlags defines the available root flags.
@@ -65,98 +63,98 @@ func RootFlags(cfg *config.Config) []cli.Flag {
 			Name:        "log.level",
 			Value:       "info",
 			Usage:       "Only log messages with given severity",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_LOG_LEVEL"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_LOG_LEVEL"),
 			Destination: &cfg.Logs.Level,
 		},
 		&cli.BoolFlag{
 			Name:        "log.pretty",
 			Value:       false,
 			Usage:       "Enable pretty messages for logging",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_LOG_PRETTY"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_LOG_PRETTY"),
 			Destination: &cfg.Logs.Pretty,
 		},
 		&cli.StringFlag{
 			Name:        "web.address",
 			Value:       "0.0.0.0:9505",
 			Usage:       "Address to bind the metrics server",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_WEB_ADDRESS"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_WEB_ADDRESS"),
 			Destination: &cfg.Server.Addr,
 		},
 		&cli.StringFlag{
 			Name:        "web.path",
 			Value:       "/metrics",
 			Usage:       "Path to bind the metrics server",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_WEB_PATH"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_WEB_PATH"),
 			Destination: &cfg.Server.Path,
 		},
 		&cli.BoolFlag{
 			Name:        "web.debug",
 			Value:       false,
 			Usage:       "Enable pprof debugging for server",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_WEB_PPROF"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_WEB_PPROF"),
 			Destination: &cfg.Server.Pprof,
 		},
 		&cli.DurationFlag{
 			Name:        "web.timeout",
 			Value:       10 * time.Second,
 			Usage:       "Server metrics endpoint timeout",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_WEB_TIMEOUT"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_WEB_TIMEOUT"),
 			Destination: &cfg.Server.Timeout,
 		},
 		&cli.StringFlag{
 			Name:        "web.config",
 			Value:       "",
 			Usage:       "Path to web-config file",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_WEB_CONFIG"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_WEB_CONFIG"),
 			Destination: &cfg.Server.Web,
 		},
 		&cli.DurationFlag{
 			Name:        "request.timeout",
 			Value:       5 * time.Second,
 			Usage:       "Timeout requesting DockerHub API",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_REQUEST_TIMEOUT"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_REQUEST_TIMEOUT"),
 			Destination: &cfg.Target.Timeout,
 		},
 		&cli.StringFlag{
 			Name:        "dockerhub.username",
 			Value:       "",
 			Usage:       "Username for the DockerHub authentication",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_USERNAME"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_USERNAME"),
 			Destination: &cfg.Target.Username,
 		},
 		&cli.StringFlag{
 			Name:        "dockerhub.password",
 			Value:       "",
 			Usage:       "Password for the DockerHub authentication",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_PASSWORD"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_PASSWORD"),
 			Destination: &cfg.Target.Password,
 		},
 		&cli.StringSliceFlag{
 			Name:        "dockerhub.org",
-			Value:       cli.NewStringSlice(),
+			Value:       []string{},
 			Usage:       "Organizations to scrape metrics from",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_ORG"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_ORG"),
 			Destination: &cfg.Target.Orgs,
 		},
 		&cli.StringSliceFlag{
 			Name:        "dockerhub.user",
-			Value:       cli.NewStringSlice(),
+			Value:       []string{},
 			Usage:       "Users to scrape metrics from",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_USER"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_USER"),
 			Destination: &cfg.Target.Users,
 		},
 		&cli.StringSliceFlag{
 			Name:        "dockerhub.repo",
-			Value:       cli.NewStringSlice(),
+			Value:       []string{},
 			Usage:       "Repositories to scrape metrics from",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_REPO"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_REPO"),
 			Destination: &cfg.Target.Repos,
 		},
 		&cli.BoolFlag{
 			Name:        "collector.repos",
 			Value:       true,
 			Usage:       "Enable collector for repos",
-			EnvVars:     []string{"DOCKERHUB_EXPORTER_COLLECTOR_REPOS"},
+			Sources:     cli.EnvVars("DOCKERHUB_EXPORTER_COLLECTOR_REPOS"),
 			Destination: &cfg.Collector.Repos,
 		},
 	}
