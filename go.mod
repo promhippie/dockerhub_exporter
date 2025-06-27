@@ -6,7 +6,7 @@ require (
 	github.com/go-chi/chi/v5 v5.2.2
 	github.com/jackspirou/syscerts v0.0.0-20160531025014-b68f5469dff1
 	github.com/joho/godotenv v1.5.1
-	github.com/oklog/run v1.1.0
+	github.com/oklog/run v1.2.0
 	github.com/prometheus/client_golang v1.22.0
 	github.com/prometheus/exporter-toolkit v0.14.0
 	github.com/stretchr/testify v1.10.0
