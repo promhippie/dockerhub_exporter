@@ -70,7 +70,7 @@ like this to the `docker-compose.yml` file:
 {{< highlight diff >}}
   dockerhub_exporter:
 -   image: promhippie/dockerhub-exporter:latest
-+   image: promhippie/dockerhub-exporter:1.0.0
++   image: promhippie/dockerhub-exporter:x.x.x
     restart: always
     environment:
       - DOCKERHUB_EXPORTER_USERNAME=octocat

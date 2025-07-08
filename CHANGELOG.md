@@ -1,23 +1,7 @@
-# Changelog for unreleased
-
-The following sections list the changes for unreleased.
-
-## Summary
-
- * Chg #186: Switch to official logging library
-
-## Details
-
- * Change #186: Switch to official logging library
-
-   Since there have been a structured logger part of the Go standard library we
-   thought it's time to replace the library with that. Be aware that log messages
-   should change a little bit.
-
-   https://github.com/promhippie/dockerhub_exporter/issues/186
+# Changelog
 
 
-# Changelog for 1.1.0
+## 1.1.0
 
 The following sections list the changes for 1.1.0.
 
@@ -56,7 +40,7 @@ The following sections list the changes for 1.1.0.
    https://github.com/promhippie/dockerhub_exporter/pull/135
 
 
-# Changelog for 1.0.0
+## 1.0.0
 
 The following sections list the changes for 1.0.0.
 
@@ -74,7 +58,7 @@ The following sections list the changes for 1.0.0.
    https://github.com/promhippie/dockerhub_exporter/issues/11
 
 
-# Changelog for 0.2.0
+## 0.2.0
 
 The following sections list the changes for 0.2.0.
 
@@ -101,7 +85,7 @@ The following sections list the changes for 0.2.0.
    https://github.com/promhippie/dockerhub_exporter/issues/3
 
 
-# Changelog for 0.1.0
+## 0.1.0
 
 The following sections list the changes for 0.1.0.
 
