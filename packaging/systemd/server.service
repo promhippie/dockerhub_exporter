@@ -1,0 +1,20 @@
+[Unit]
+Description=Prometheus exporter for DockerHub
+Documentation=https://promhippie.github.io/dockerhub_exporter/
+
+Requires=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=dockerhub-exporter
+Group=dockerhub-exporter
+EnvironmentFile=-/etc/default/dockerhub-exporter
+EnvironmentFile=-/etc/sysconfig/dockerhub-exporter
+ExecStart=/usr/bin/dockerhub_exporter $DOCKERHUB_EXPORTER_ARGS
+WorkingDirectory=/var/lib/dockerhub-exporter
+Restart=always
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
