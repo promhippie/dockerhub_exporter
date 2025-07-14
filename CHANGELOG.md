@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.0.0...v2.1.0) (2025-07-14)
+
+
+### Features
+
+* **deps:** update module github.com/mgechev/revive to v1.11.0 ([06dcf64](https://github.com/promhippie/dockerhub_exporter/commit/06dcf646cde35c7bac0954603451d6eb69a1c138))
+
+
+### Bugfixes
+
+* **deps:** update golang docker tag to v1.24.5 ([448fb1e](https://github.com/promhippie/dockerhub_exporter/commit/448fb1e7aafbdcaa1596a13eabdaf69ff49202f7))
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.2.2 ([1e95b77](https://github.com/promhippie/dockerhub_exporter/commit/1e95b77e8dd949359ea14e5f80768bfd2c3645c4))
+
 ## [2.0.0](https://github.com/promhippie/dockerhub_exporter/compare/v1.1.0...v2.0.0) (2025-07-09)
 
 
