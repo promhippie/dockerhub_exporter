@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.2.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.1.0...v2.2.0) (2025-07-28)
+
+
+### Features
+
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.3.0 ([a116a5b](https://github.com/promhippie/dockerhub_exporter/commit/a116a5b0a6824343c038d20947b16b36d56c8dd8))
+
+
+### Miscellaneous
+
+* **deps:** update docker digests ([cc88b9d](https://github.com/promhippie/dockerhub_exporter/commit/cc88b9dee1e018a658ce20ccf115ea2c6c737849))
+* **deps:** update golang:1.24.5-alpine3.21 docker digest to 6edc205 ([e9ab2f0](https://github.com/promhippie/dockerhub_exporter/commit/e9ab2f008ffab75a1ada1b6374b427c25293adf2))
+* **deps:** update golang:1.24.5-alpine3.21 docker digest to 72ff633 ([6616d27](https://github.com/promhippie/dockerhub_exporter/commit/6616d2708e4633ad45ff37391c32f6e1d0c18c77))
+
 ## [2.1.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.0.0...v2.1.0) (2025-07-14)
 
 
