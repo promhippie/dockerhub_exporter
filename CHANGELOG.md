@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.1](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.0...v2.2.1) (2025-08-04)
+
+
+### Bugfixes
+
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.3.1 ([44d1a3a](https://github.com/promhippie/dockerhub_exporter/commit/44d1a3afa6c7617352c4c749bef616ff039bf959))
+* **deps:** update module github.com/prometheus/client_golang to v1.23.0 ([c1dccaf](https://github.com/promhippie/dockerhub_exporter/commit/c1dccaf2ea57bde1eb1afeb156318e5a2d4dc8f6))
+
 ## [2.2.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.1.0...v2.2.0) (2025-07-28)
 
 
