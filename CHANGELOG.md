@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.2](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.1...v2.2.2) (2025-08-11)
+
+
+### Bugfixes
+
+* **deps:** update golang docker tag to v1.24.6 ([2d151c8](https://github.com/promhippie/dockerhub_exporter/commit/2d151c8ff91dd33312e00b62a3078af747da8304))
+
 ## [2.2.1](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.0...v2.2.1) (2025-08-04)
 
 
