@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.2.3](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.2...v2.2.3) (2025-08-18)
+
+
+### Bugfixes
+
+* correctly hand over goos/goarch to build task ([856099e](https://github.com/promhippie/dockerhub_exporter/commit/856099e39d3b6d2ee48d80b6ad2b067bee8f94c2))
+* **deps:** update golang docker tag to v1.25.0 ([507019a](https://github.com/promhippie/dockerhub_exporter/commit/507019afe374a68e28ac3f66d93285c0098eabae))
+* **deps:** update golang:1.25.0-alpine3.21 docker digest to 382d1a7 ([80e68e8](https://github.com/promhippie/dockerhub_exporter/commit/80e68e8855fec9ac8ac09f3ad2a2d576e759e71e))
+* **deps:** update golang:1.25.0-alpine3.21 docker digest to a92c1ab ([f371e06](https://github.com/promhippie/dockerhub_exporter/commit/f371e06c19f16dd338b0ef5360c9ee1a24106fde))
+* **deps:** update golang:1.25.0-alpine3.21 docker digest to c8e1680 ([52bdbf1](https://github.com/promhippie/dockerhub_exporter/commit/52bdbf1bff43d6199f8699f1d111d1184fb5e3fd))
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.4.0 ([f84b4e6](https://github.com/promhippie/dockerhub_exporter/commit/f84b4e6c96edaab67971fe250abfa7d7ccd39198))
+* **deps:** update module github.com/urfave/cli/v3 to v3.3.9 ([a948c2b](https://github.com/promhippie/dockerhub_exporter/commit/a948c2bd43c400539f1337ee1807e17cc94d5d61))
+* **deps:** update module github.com/urfave/cli/v3 to v3.4.0 ([2ce1caf](https://github.com/promhippie/dockerhub_exporter/commit/2ce1cafff10b2115b63e74bc6727930714660ee5))
+* **deps:** update module github.com/urfave/cli/v3 to v3.4.1 ([23ee75b](https://github.com/promhippie/dockerhub_exporter/commit/23ee75bec7a73e510264565a7c88304c2943e5d0))
+
 ## [2.2.2](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.1...v2.2.2) (2025-08-11)
 
 
