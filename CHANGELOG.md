@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.2.4](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.3...v2.2.4) (2025-08-25)
+
+
+### Bugfixes
+
+* **deps:** update module github.com/stretchr/testify to v1.11.0 ([77438f8](https://github.com/promhippie/dockerhub_exporter/commit/77438f8e424a5839b0bec22f30145e52d092956c))
+
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([3d5756d](https://github.com/promhippie/dockerhub_exporter/commit/3d5756d128046f708978572e7b606608068d03d5))
+* **flake:** updated lockfile [skip ci] ([5b1051d](https://github.com/promhippie/dockerhub_exporter/commit/5b1051d0ef200891741c691ced90e21843d5926d))
+
 ## [2.2.3](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.2...v2.2.3) (2025-08-18)
 
 
