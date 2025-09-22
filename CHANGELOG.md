@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.2.7](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.6...v2.2.7) (2025-09-22)
+
+
+### Bugfixes
+
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.5.0 ([b1fbd71](https://github.com/promhippie/dockerhub_exporter/commit/b1fbd71aa688637bd3b68b765f6a743cc2fd88fd))
+
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([f508ea6](https://github.com/promhippie/dockerhub_exporter/commit/f508ea6199eb31f70d0e9d2d32b740fe8f5cf3f0))
+* **flake:** updated lockfile [skip ci] ([84b010c](https://github.com/promhippie/dockerhub_exporter/commit/84b010ca4bc00a7d8991b8bb29e558d9857a70c9))
+* move from baltorepo to cloudsmith ([1bf343d](https://github.com/promhippie/dockerhub_exporter/commit/1bf343d8f60354419abbf4ca7b7e29dd022e89c6))
+
 ## [2.2.6](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.5...v2.2.6) (2025-09-08)
 
 
