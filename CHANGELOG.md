@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.2.8](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.7...v2.2.8) (2025-10-13)
+
+
+### Bugfixes
+
+* **deps:** update alpine:3.22 docker digest to 4b7ce07 ([7fd763f](https://github.com/promhippie/dockerhub_exporter/commit/7fd763f72677e443a8c8b0529087fbd15e80f5e2))
+* **deps:** update golang docker tag to v1.25.2 ([f0265bb](https://github.com/promhippie/dockerhub_exporter/commit/f0265bbaf063a11af2026a3107108f5de851929b))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 0134653 ([f2cab52](https://github.com/promhippie/dockerhub_exporter/commit/f2cab52e45e81ae6ab3f45ab9238986c6490bec0))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 0ae17b3 ([efbf75b](https://github.com/promhippie/dockerhub_exporter/commit/efbf75be5a0ed7376c752dae229b961e38fca873))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to 7300a8d ([a3d3aed](https://github.com/promhippie/dockerhub_exporter/commit/a3d3aedb28f1484789fecf3c3b6966a12a0ac507))
+* **deps:** update golang:1.25.2-alpine3.21 docker digest to e51523f ([cb34e95](https://github.com/promhippie/dockerhub_exporter/commit/cb34e95c0621f7553f5f958c96198c941e6ed674))
+
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([b19f7d2](https://github.com/promhippie/dockerhub_exporter/commit/b19f7d27da187ff7b63f03463e44fb96cef2696e))
+* **flake:** updated lockfile [skip ci] ([322fddf](https://github.com/promhippie/dockerhub_exporter/commit/322fddf5f1fef36faadb8e382890ed8f17198c82))
+* **flake:** updated lockfile [skip ci] ([2113169](https://github.com/promhippie/dockerhub_exporter/commit/2113169aafa475c626b4f0e0c293a22551d20e9f))
+
 ## [2.2.7](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.6...v2.2.7) (2025-09-22)
 
 
