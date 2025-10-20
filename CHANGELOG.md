@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.2.9](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.8...v2.2.9) (2025-10-20)
+
+
+### Bugfixes
+
+* **deps:** update golang docker tag to v1.25.3 ([89d81ad](https://github.com/promhippie/dockerhub_exporter/commit/89d81ad737b39451abd569876d8358f563cf990c))
+* **deps:** update golang:1.25.3-alpine3.21 docker digest to 0c9f3e0 ([4b2d023](https://github.com/promhippie/dockerhub_exporter/commit/4b2d023d42bd2686d1f1f3f7d6e653eea07d52ec))
+
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([2e4d19a](https://github.com/promhippie/dockerhub_exporter/commit/2e4d19ab47d2f40645b75dc1641ab1f968d61bf3))
+
 ## [2.2.8](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.7...v2.2.8) (2025-10-13)
 
 
