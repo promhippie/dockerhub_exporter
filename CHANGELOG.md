@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.2.10](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.9...v2.2.10) (2025-10-27)
+
+
+### Bugfixes
+
+* **deps:** update module github.com/prometheus/exporter-toolkit to v0.15.0 ([38b0d60](https://github.com/promhippie/dockerhub_exporter/commit/38b0d60f0f3846d366c4b4b91d172889fed1dfb0))
+* **deps:** update module github.com/urfave/cli/v3 to v3.5.0 ([b1970e1](https://github.com/promhippie/dockerhub_exporter/commit/b1970e15edb005f063763f7b86eb250ec1ef1ab8))
+
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([c389083](https://github.com/promhippie/dockerhub_exporter/commit/c38908388cf59a039827f46e43b1086e0bb13bd4))
+
 ## [2.2.9](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.8...v2.2.9) (2025-10-20)
 
 
