@@ -18,6 +18,6 @@ secretGenerator:
 images:
   - name: dockerhub-exporter
     newName: quay.io/promhippie/dockerhub-exporter
-    newTag: latest@sha256:143858a466171ce079e81a335596efbbecf106ac2544445ea7fa21d1262576ce
+    newTag: latest@sha256:021214d4e43c6f658774ef616a71f173529ba602352779d9b4e5761fe0c5c17c
 
 ...
