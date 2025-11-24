@@ -1,5 +1,41 @@
 # Changelog
 
+## [2.2.13](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.12...v2.2.13) (2025-11-24)
+
+
+### Bugfixes
+
+* **deps:** pin quay.io/promhippie/dockerhub-exporter docker tag to a2c7a70 ([b31945f](https://github.com/promhippie/dockerhub_exporter/commit/b31945fc899a8a1a8fbc6e0b9a7fd94f8d2638a1))
+* **deps:** update module github.com/golangci/golangci-lint/v2 to v2.6.2 ([b46882f](https://github.com/promhippie/dockerhub_exporter/commit/b46882feca568356b337db06280a8f756ca1cc45))
+* **deps:** update module github.com/urfave/cli/v3 to v3.6.1 ([be4c7bb](https://github.com/promhippie/dockerhub_exporter/commit/be4c7bb77fb5cb136c6068a542a56256772b1cd3))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 021214d ([a4645f2](https://github.com/promhippie/dockerhub_exporter/commit/a4645f2be344cb7fe3318f18a597267f22ca0b81))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 05e3796 ([2552a20](https://github.com/promhippie/dockerhub_exporter/commit/2552a20df23f03d5ec9c2c2f16dc511e6f32ff1f))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 0fc345d ([6204e67](https://github.com/promhippie/dockerhub_exporter/commit/6204e673ffcd4e847a5da1d1264b790c983b495f))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 143858a ([902f260](https://github.com/promhippie/dockerhub_exporter/commit/902f26006bec03f6778b076d7bc2e2bc7acc099a))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 198d53f ([afd3f25](https://github.com/promhippie/dockerhub_exporter/commit/afd3f25350de7631ae8cf87f8cc042723d5bd526))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 3a29877 ([b0fe309](https://github.com/promhippie/dockerhub_exporter/commit/b0fe309d476f6977ea71b0745a7766aeca3324c9))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 41a6356 ([a50bf60](https://github.com/promhippie/dockerhub_exporter/commit/a50bf6071c38bfef4f9a83b4f32565d926d9227f))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 58edb2b ([734d0c4](https://github.com/promhippie/dockerhub_exporter/commit/734d0c4e4b03699eb1ead4aec9a94292e2248d2b))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 602b524 ([8232567](https://github.com/promhippie/dockerhub_exporter/commit/8232567e3d3d1049027c60d5d2c96d1afbeb18e7))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 6287942 ([9dfe6f4](https://github.com/promhippie/dockerhub_exporter/commit/9dfe6f4deaf0d9ba663d30a94f8d94a96ab0b704))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 6ad9ac2 ([18a1cdc](https://github.com/promhippie/dockerhub_exporter/commit/18a1cdcf8592d73c4c05852e2bf86f03b3cd849d))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 7adc96d ([f93f63e](https://github.com/promhippie/dockerhub_exporter/commit/f93f63eedb718a7b622acc770846a5092a669873))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 7c426e6 ([640ee5e](https://github.com/promhippie/dockerhub_exporter/commit/640ee5ec7c6a12db11d8934717baa43bd8051d0e))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 98ff791 ([2d0acb2](https://github.com/promhippie/dockerhub_exporter/commit/2d0acb20342cfc4a594417b25c9cbc702c1b9a1f))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to 9f957ff ([b5a1ba0](https://github.com/promhippie/dockerhub_exporter/commit/b5a1ba0ac7327bef0802fee45baf753fd8e0c564))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to b1f70a6 ([ee2c1a4](https://github.com/promhippie/dockerhub_exporter/commit/ee2c1a4609cbfff99a2ac972a82865907239e60d))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to c903d4b ([8a7ab7b](https://github.com/promhippie/dockerhub_exporter/commit/8a7ab7b2878a0d50ef6030f1cef355a9d754502f))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to d3adbd8 ([1985b90](https://github.com/promhippie/dockerhub_exporter/commit/1985b904f830c7164e8269abb788a660682cc3ee))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to d68b42c ([a176d99](https://github.com/promhippie/dockerhub_exporter/commit/a176d990b7c68c3d5032560ec2319925fcef7e44))
+* **deps:** update quay.io/promhippie/dockerhub-exporter:latest docker digest to f15d2b4 ([ff5fcbb](https://github.com/promhippie/dockerhub_exporter/commit/ff5fcbbba50852b3f2869b0d3610e7b8610711f8))
+
+
+### Miscellaneous
+
+* **deps:** bump golang.org/x/crypto from 0.44.0 to 0.45.0 ([ea56cc5](https://github.com/promhippie/dockerhub_exporter/commit/ea56cc5a7c57b72634bf491e51d6e6610b64678c))
+* **flake:** updated lockfile [skip ci] ([4e12cdf](https://github.com/promhippie/dockerhub_exporter/commit/4e12cdff64b167cf8d4006c9ad7a40b2e284b177))
+* **flake:** updated lockfile [skip ci] ([6c700a7](https://github.com/promhippie/dockerhub_exporter/commit/6c700a75668cb48b680bca0ca0cad79322542e21))
+
 ## [2.2.12](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.11...v2.2.12) (2025-11-10)
 
 
