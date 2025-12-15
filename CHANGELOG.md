@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.3.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.13...v2.3.0) (2025-12-15)
+
+
+### Features
+
+* **minor:** update alpine docker tag to v3.23 ([#314](https://github.com/promhippie/dockerhub_exporter/issues/314)) ([864516e](https://github.com/promhippie/dockerhub_exporter/commit/864516ee1e5a8b7d0ce2065ac616f6d597981627))
+
+
+### Bugfixes
+
+* **patch:** update golang docker tag to v1.25.5 ([#313](https://github.com/promhippie/dockerhub_exporter/issues/313)) ([099cdfa](https://github.com/promhippie/dockerhub_exporter/commit/099cdfae9dd7e9aff826b3e650557018ea4a8aba))
+
+
+### Miscellaneous
+
+* drop issue and pull request template ([8a7f1ec](https://github.com/promhippie/dockerhub_exporter/commit/8a7f1ec7024d5adf0724924ef6476d4e3f4965eb))
+* **flake:** updated lockfile [skip ci] ([ba79304](https://github.com/promhippie/dockerhub_exporter/commit/ba793048fdf6a0af39e67caa2091ca1b1f14e3e6))
+* **flake:** updated lockfile [skip ci] ([68c4aba](https://github.com/promhippie/dockerhub_exporter/commit/68c4aba49a166420e98499663d5acc3c5c8c2ace))
+* **flake:** updated lockfile [skip ci] ([c821793](https://github.com/promhippie/dockerhub_exporter/commit/c821793bb3f3f866e2df57f6032c42020d5b6714))
+* just format some yaml comment ([7065cce](https://github.com/promhippie/dockerhub_exporter/commit/7065ccec907b583f47cfa28b45c58810bf554c3c))
+
 ## [2.2.13](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.12...v2.2.13) (2025-11-24)
 
 
