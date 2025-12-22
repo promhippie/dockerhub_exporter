@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.3.1](https://github.com/promhippie/dockerhub_exporter/compare/v2.3.0...v2.3.1) (2025-12-22)
+
+
+### Bugfixes
+
+* **deps:** update alpine:3.23 docker digest to 865b95f ([#325](https://github.com/promhippie/dockerhub_exporter/issues/325)) ([071f2a2](https://github.com/promhippie/dockerhub_exporter/commit/071f2a22a94b141473612da5bad10e92d408fddc))
+* **deps:** update alpine:3.23 docker digest to be171b5 ([#324](https://github.com/promhippie/dockerhub_exporter/issues/324)) ([41830f8](https://github.com/promhippie/dockerhub_exporter/commit/41830f890768d691c6480cf33dc81c3a98fb86cf))
+
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([b5671ac](https://github.com/promhippie/dockerhub_exporter/commit/b5671ac00bffab6d0fe3b094d65a9bb9282d34f2))
+
 ## [2.3.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.2.13...v2.3.0) (2025-12-15)
 
 
