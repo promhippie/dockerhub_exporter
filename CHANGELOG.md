@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.3.3](https://github.com/promhippie/dockerhub_exporter/compare/v2.3.2...v2.3.3) (2026-01-19)
+
+### Bugfixes
+
+* **patch:** update module github.com/go-chi/chi/v5 to v5.2.4 ([#334](https://github.com/promhippie/dockerhub_exporter/issues/334)) ([72f27fd](https://github.com/promhippie/dockerhub_exporter/commit/72f27fd4ca9caf3f451d4a127f00c78a4791acab))
+* **patch:** update module github.com/urfave/cli/v3 to v3.6.2 ([#336](https://github.com/promhippie/dockerhub_exporter/issues/336)) ([d5493d6](https://github.com/promhippie/dockerhub_exporter/commit/d5493d60b49359c520a0649c5299484fc88a6f6f))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([611ede3](https://github.com/promhippie/dockerhub_exporter/commit/611ede355c1f3b30c49fe3712e289d3165df2b64))
+
 ## [2.3.2](https://github.com/promhippie/dockerhub_exporter/compare/v2.3.1...v2.3.2) (2026-01-12)
 
 ### Bugfixes
