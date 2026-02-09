@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.3.5](https://github.com/promhippie/dockerhub_exporter/compare/v2.3.4...v2.3.5) (2026-02-09)
+
+### Bugfixes
+
+* **patch:** update module github.com/go-chi/chi/v5 to v5.2.5 ([#339](https://github.com/promhippie/dockerhub_exporter/issues/339)) ([96cab20](https://github.com/promhippie/dockerhub_exporter/commit/96cab2057aef21158f674b69f48e0480eb0d1033))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([d4e4d13](https://github.com/promhippie/dockerhub_exporter/commit/d4e4d1393ae5549b598324f8794dd44f723646ce))
+
 ## [2.3.4](https://github.com/promhippie/dockerhub_exporter/compare/v2.3.3...v2.3.4) (2026-02-02)
 
 ### Bugfixes
