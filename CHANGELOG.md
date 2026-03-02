@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.4.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.3.5...v2.4.0) (2026-03-02)
+
+### Features
+
+* **minor:** update module github.com/urfave/cli/v3 to v3.7.0 ([#341](https://github.com/promhippie/dockerhub_exporter/issues/341)) ([7c85bc0](https://github.com/promhippie/dockerhub_exporter/commit/7c85bc0757c947a4c442a37b998c4cdc1f3f57ec))
+
+### Miscellaneous
+
+* enable skip-package-name-collision-with-go-std for revive ([6eb2b3f](https://github.com/promhippie/dockerhub_exporter/commit/6eb2b3f49f188a1b3195c36bb58b7db9ce26a764))
+* **flake:** updated lockfile [skip ci] ([297b8e6](https://github.com/promhippie/dockerhub_exporter/commit/297b8e6aa49a13c4f1595a3423fb45e5ae985ebb))
+* **flake:** updated lockfile [skip ci] ([e4e5e14](https://github.com/promhippie/dockerhub_exporter/commit/e4e5e14d0d0bba3de751670b5943df687775e140))
+* **flake:** updated lockfile [skip ci] ([2e11197](https://github.com/promhippie/dockerhub_exporter/commit/2e11197c5348c76dc6d8e8841fea338465eba67f))
+* replace nixfmt package ([73aceb6](https://github.com/promhippie/dockerhub_exporter/commit/73aceb633d13d399316935f4447d54f5c2ff1dba))
+
 ## [2.3.5](https://github.com/promhippie/dockerhub_exporter/compare/v2.3.4...v2.3.5) (2026-02-09)
 
 ### Bugfixes
