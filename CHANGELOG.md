@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.5.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.4.0...v2.5.0) (2026-03-30)
+
+### Features
+
+* **minor:** update module github.com/urfave/cli/v3 to v3.8.0 ([#349](https://github.com/promhippie/dockerhub_exporter/issues/349)) ([5ebf625](https://github.com/promhippie/dockerhub_exporter/commit/5ebf625888c7eae76634c6ca62a6a7de6e2b9a7e))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([5459733](https://github.com/promhippie/dockerhub_exporter/commit/5459733b7ea088e42299ca70933d8e4f454fdb28))
+* **flake:** updated lockfile [skip ci] ([144a671](https://github.com/promhippie/dockerhub_exporter/commit/144a6710ec93aabd2b7c38cdc0d90e211eb17fcd))
+* **flake:** updated lockfile [skip ci] ([b9dd8b1](https://github.com/promhippie/dockerhub_exporter/commit/b9dd8b128db84091756b1d5250adec4ef3a70b4a))
+* **flake:** updated lockfile [skip ci] ([04dd67f](https://github.com/promhippie/dockerhub_exporter/commit/04dd67ff02961ddc2f082f093ce572d83e8570d2))
+
 ## [2.4.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.3.5...v2.4.0) (2026-03-02)
 
 ### Features
