@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.6.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.5.0...v2.6.0) (2026-04-13)
+
+### Features
+
+* **minor:** update module github.com/prometheus/exporter-toolkit to v0.16.0 ([#350](https://github.com/promhippie/dockerhub_exporter/issues/350)) ([03a6418](https://github.com/promhippie/dockerhub_exporter/commit/03a64188f87a325b534ff1b4e7bf67b6404048b1))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([41ccc82](https://github.com/promhippie/dockerhub_exporter/commit/41ccc829bd5ccce72c607480d5a67c3ac8a58700))
+* **flake:** updated lockfile [skip ci] ([19c7f8c](https://github.com/promhippie/dockerhub_exporter/commit/19c7f8c0b7febe0b09dc21c8ac95c2293caf867f))
+
 ## [2.5.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.4.0...v2.5.0) (2026-03-30)
 
 ### Features
