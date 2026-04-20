@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.6.1](https://github.com/promhippie/dockerhub_exporter/compare/v2.6.0...v2.6.1) (2026-04-20)
+
+### Bugfixes
+
+* **deps:** update alpine:3.23 docker digest to 5b10f43 ([#353](https://github.com/promhippie/dockerhub_exporter/issues/353)) ([357a85c](https://github.com/promhippie/dockerhub_exporter/commit/357a85c73227aa59cfffab96f34950a06093d843))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([1ff57d1](https://github.com/promhippie/dockerhub_exporter/commit/1ff57d1df1098b7abbb557cf5a36982a5e0b92ea))
+
 ## [2.6.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.5.0...v2.6.0) (2026-04-13)
 
 ### Features
