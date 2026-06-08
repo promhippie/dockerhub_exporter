@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.8.1](https://github.com/promhippie/dockerhub_exporter/compare/v2.8.0...v2.8.1) (2026-06-08)
+
+### Bugfixes
+
+* **patch:** update golang docker tag to v1.26.4 ([#362](https://github.com/promhippie/dockerhub_exporter/issues/362)) ([ee74756](https://github.com/promhippie/dockerhub_exporter/commit/ee747566bff30f1839480d6d0306c712e9bc3d87))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([74d4cb0](https://github.com/promhippie/dockerhub_exporter/commit/74d4cb04ad57ba340545f3aa71e6d44cbe377b68))
+* **flake:** updated lockfile [skip ci] ([a90eb68](https://github.com/promhippie/dockerhub_exporter/commit/a90eb68cc962231804c17a60db5f05503d0eb6a3))
+
 ## [2.8.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.7.0...v2.8.0) (2026-05-25)
 
 ### Features
