@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.9.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.8.1...v2.9.0) (2026-06-15)
+
+### Features
+
+* **minor:** update alpine docker tag to v3.24 ([#363](https://github.com/promhippie/dockerhub_exporter/issues/363)) ([12d3df0](https://github.com/promhippie/dockerhub_exporter/commit/12d3df03c68df99461281e46df0ae136f8ed068a))
+* **minor:** update module github.com/urfave/cli/v3 to v3.10.0 ([#369](https://github.com/promhippie/dockerhub_exporter/issues/369)) ([b1182c8](https://github.com/promhippie/dockerhub_exporter/commit/b1182c8493a35f2c598737ababd6aa4baf1337b2))
+
+### Bugfixes
+
+* **deps:** update docker digests ([de88f86](https://github.com/promhippie/dockerhub_exporter/commit/de88f8664e4f614e67fad05cfb0684b0ceddae25))
+* **deps:** update docker digests ([418578d](https://github.com/promhippie/dockerhub_exporter/commit/418578d8d4cd21b135558e0bd4a1cf0a55d51f97))
+* **deps:** update docker digests ([#364](https://github.com/promhippie/dockerhub_exporter/issues/364)) ([d3b8840](https://github.com/promhippie/dockerhub_exporter/commit/d3b88405db782c19190649cb596c6588ae6c954d))
+* **deps:** update docker digests ([#368](https://github.com/promhippie/dockerhub_exporter/issues/368)) ([095c9ec](https://github.com/promhippie/dockerhub_exporter/commit/095c9ecae6e913dbf21937088527371d39e4722a))
+* **patch:** update module github.com/urfave/cli/v3 to v3.9.1 ([#366](https://github.com/promhippie/dockerhub_exporter/issues/366)) ([663a037](https://github.com/promhippie/dockerhub_exporter/commit/663a03733b2f3ff111fda013f3b8a0e6acea9d52))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([7bb2032](https://github.com/promhippie/dockerhub_exporter/commit/7bb2032699f9624556c3eef94a94e26bf92aa7ee))
+
 ## [2.8.1](https://github.com/promhippie/dockerhub_exporter/compare/v2.8.0...v2.8.1) (2026-06-08)
 
 ### Bugfixes
