@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.9.1](https://github.com/promhippie/dockerhub_exporter/compare/v2.9.0...v2.9.1) (2026-06-22)
+
+### Bugfixes
+
+* **deps:** update docker digests ([#370](https://github.com/promhippie/dockerhub_exporter/issues/370)) ([e83a09e](https://github.com/promhippie/dockerhub_exporter/commit/e83a09e85d16a05fb058a1aef19a2b93f756ed5e))
+* **deps:** update docker digests ([#371](https://github.com/promhippie/dockerhub_exporter/issues/371)) ([413ea3f](https://github.com/promhippie/dockerhub_exporter/commit/413ea3fefea1f149eed121ef4cc6b1f40647bca4))
+* **deps:** update docker digests ([#372](https://github.com/promhippie/dockerhub_exporter/issues/372)) ([e8cacd6](https://github.com/promhippie/dockerhub_exporter/commit/e8cacd6f6555290a96629bba796eba3e9c9f2e94))
+* **deps:** update docker digests ([#373](https://github.com/promhippie/dockerhub_exporter/issues/373)) ([1c718f9](https://github.com/promhippie/dockerhub_exporter/commit/1c718f9f9bbf438c34379dd2d5f81393216dbc1e))
+
+### Miscellaneous
+
+* **flake:** updated lockfile [skip ci] ([471a7be](https://github.com/promhippie/dockerhub_exporter/commit/471a7be2080976126e9d880545db73b87d169e70))
+
 ## [2.9.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.8.1...v2.9.0) (2026-06-15)
 
 ### Features
