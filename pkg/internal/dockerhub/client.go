@@ -4,13 +4,13 @@ import (
 	"bytes"
 	"context"
 	"crypto/tls"
+	"crypto/x509"
 	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
 	"strings"
 
-	"github.com/jackspirou/syscerts"
 	"github.com/promhippie/dockerhub_exporter/pkg/version"
 )
 
@@ -22,6 +22,11 @@ const (
 func New(opts ...Option) (*Client, error) {
 	options := newOptions(opts...)
 
+	certPool, err := x509.SystemCertPool()
+	if err != nil || certPool == nil {
+		certPool = x509.NewCertPool()
+	}
+
 	client := &Client{
 		Username: options.Username,
 		Password: options.Password,
@@ -29,7 +34,7 @@ func New(opts ...Option) (*Client, error) {
 			Transport: &http.Transport{
 				Proxy: http.ProxyFromEnvironment,
 				TLSClientConfig: &tls.Config{
-					RootCAs: syscerts.SystemRootsPool(),
+					RootCAs: certPool,
 				},
 			},
 		},
