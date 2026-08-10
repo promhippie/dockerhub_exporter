@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.12.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.11.0...v2.12.0) (2026-08-10)
+
+### Features
+
+* drop redundant syscerts library ([9cdbc16](https://github.com/promhippie/dockerhub_exporter/commit/9cdbc1617a69d88fbce51a04d46b4d9ac9845f6c))
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.21.0 ([80db6b0](https://github.com/promhippie/dockerhub_exporter/commit/80db6b0b835e2b478c5e0e76786e4fd8032b81f5))
+* **minor:** update dependency golangci-lint to v2.12.2 ([8d338d0](https://github.com/promhippie/dockerhub_exporter/commit/8d338d0eefcf5196665fb2542acbed906040f95c))
+* restructure repo and build processes ([993a429](https://github.com/promhippie/dockerhub_exporter/commit/993a429308312e137e133a0c31be7b33b961d060))
+
+### Bugfixes
+
+* **patch:** update dependency cosign to v3.1.3 ([#390](https://github.com/promhippie/dockerhub_exporter/issues/390)) ([0d35893](https://github.com/promhippie/dockerhub_exporter/commit/0d358936261b4bd07f1af618d33282e18d3626e9))
+
 ## [2.11.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.10.1...v2.11.0) (2026-07-27)
 
 ## [2.10.1](https://github.com/promhippie/dockerhub_exporter/compare/v2.10.0...v2.10.1) (2026-07-13)
