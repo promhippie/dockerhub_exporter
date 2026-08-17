@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.13.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.12.0...v2.13.0) (2026-08-17)
+
+### Features
+
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.22.0 ([#393](https://github.com/promhippie/dockerhub_exporter/issues/393)) ([ac86341](https://github.com/promhippie/dockerhub_exporter/commit/ac86341c392e67e11b1d3548d14fcceeae7da2c9))
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.23.0 ([#397](https://github.com/promhippie/dockerhub_exporter/issues/397)) ([e9526b3](https://github.com/promhippie/dockerhub_exporter/commit/e9526b3c398d1c2817674ca2e4ae84ea31ba1d33))
+* **minor:** update dependency hugo-extended to v0.165.0 ([#394](https://github.com/promhippie/dockerhub_exporter/issues/394)) ([dc481f1](https://github.com/promhippie/dockerhub_exporter/commit/dc481f18df7cf7916f4f00af04f9367769c6cf61))
+* **minor:** update module github.com/urfave/cli/v3 to v3.11.0 ([#398](https://github.com/promhippie/dockerhub_exporter/issues/398)) ([f90fcd9](https://github.com/promhippie/dockerhub_exporter/commit/f90fcd900b637f4f80e94ba46084d4756ec76ff2))
+
+### Bugfixes
+
+* **deps:** update golang:1.26.6-alpine docker digest to 3889b42 ([#399](https://github.com/promhippie/dockerhub_exporter/issues/399)) ([7f3570f](https://github.com/promhippie/dockerhub_exporter/commit/7f3570fb0046b166dcf15e0b1406201d6a7cf080))
+* **patch:** update dependency go to v1.26.6 ([#395](https://github.com/promhippie/dockerhub_exporter/issues/395)) ([afaa8fe](https://github.com/promhippie/dockerhub_exporter/commit/afaa8fe4c85cb105a14f8b411f90179885b33308))
+* **patch:** update dependency pre-commit to v4.6.2 ([#392](https://github.com/promhippie/dockerhub_exporter/issues/392)) ([b11841f](https://github.com/promhippie/dockerhub_exporter/commit/b11841f5f6814f9277a71760c55d36eb987de55d))
+* **patch:** update golang docker tag to v1.26.6 ([#396](https://github.com/promhippie/dockerhub_exporter/issues/396)) ([00e305b](https://github.com/promhippie/dockerhub_exporter/commit/00e305bfc7a3c3d85b2edfde3687af3fedfe927e))
+
 ## [2.12.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.11.0...v2.12.0) (2026-08-10)
 
 ### Features
