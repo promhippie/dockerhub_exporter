@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.14.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.13.0...v2.14.0) (2026-08-24)
+
+### Features
+
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.24.0 ([#401](https://github.com/promhippie/dockerhub_exporter/issues/401)) ([6ec281c](https://github.com/promhippie/dockerhub_exporter/commit/6ec281c5003784c333fa624827f139630b13f0de))
+* **minor:** update dependency golangci-lint to v2.13.0 ([#406](https://github.com/promhippie/dockerhub_exporter/issues/406)) ([8f43aa6](https://github.com/promhippie/dockerhub_exporter/commit/8f43aa66138619570ccb57aed9d4154cfe1de15f))
+* **minor:** update dependency task to v3.53.1 ([#402](https://github.com/promhippie/dockerhub_exporter/issues/402)) ([24663a0](https://github.com/promhippie/dockerhub_exporter/commit/24663a0cd70cdb6b6e864011f5a1ded0a3227bd1))
+* **minor:** update golang docker tag to v1.27.0 ([#405](https://github.com/promhippie/dockerhub_exporter/issues/405)) ([32404ff](https://github.com/promhippie/dockerhub_exporter/commit/32404ff1b06288ec400d571f374d8763a27b3c44))
+* **minor:** update module github.com/stretchr/testify to v1.12.0 ([#400](https://github.com/promhippie/dockerhub_exporter/issues/400)) ([eda3302](https://github.com/promhippie/dockerhub_exporter/commit/eda33026db2564d023eeeedc2676c28defd15f4c))
+
+### Bugfixes
+
+* **patch:** update dependency golangci-lint to v2.13.1 ([#408](https://github.com/promhippie/dockerhub_exporter/issues/408)) ([fefb7f5](https://github.com/promhippie/dockerhub_exporter/commit/fefb7f5e9b3bd55cb6f80c1cf13e2aa17738a1e6))
+* **patch:** update module github.com/go-chi/chi/v5 to v5.3.2 ([#407](https://github.com/promhippie/dockerhub_exporter/issues/407)) ([16c095e](https://github.com/promhippie/dockerhub_exporter/commit/16c095e76098e725d9d481312b4ded0a42028960))
+* **patch:** update module github.com/stretchr/testify to v1.12.1 ([#403](https://github.com/promhippie/dockerhub_exporter/issues/403)) ([638faba](https://github.com/promhippie/dockerhub_exporter/commit/638faba3aad985266d2507b49bc52b970323b0c5))
+
 ## [2.13.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.12.0...v2.13.0) (2026-08-17)
 
 ### Features
