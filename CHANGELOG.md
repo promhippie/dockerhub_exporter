@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.15.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.14.0...v2.15.0) (2026-08-31)
+
+### Features
+
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.25.0 ([#411](https://github.com/promhippie/dockerhub_exporter/issues/411)) ([f919bc9](https://github.com/promhippie/dockerhub_exporter/commit/f919bc93ef72b764e044974cb24f3be45c6d8573))
+* **minor:** update dependency github:cloudsmith-io/cloudsmith-cli to v1.26.0 ([#413](https://github.com/promhippie/dockerhub_exporter/issues/413)) ([cbc3d08](https://github.com/promhippie/dockerhub_exporter/commit/cbc3d082b991f54055278d7018c4e8804ae5a37d))
+* **minor:** update dependency go to v1.27.0 ([#404](https://github.com/promhippie/dockerhub_exporter/issues/404)) ([a19be77](https://github.com/promhippie/dockerhub_exporter/commit/a19be7717bf4a2804fe9628ba3fe4ba7509fefa0))
+* **minor:** update dependency goreleaser to v2.18.0 ([#409](https://github.com/promhippie/dockerhub_exporter/issues/409)) ([e6f5720](https://github.com/promhippie/dockerhub_exporter/commit/e6f57205b0cd976c29f1cb28374c84b6a4c8b9a6))
+* **minor:** update module github.com/prometheus/exporter-toolkit to v0.19.0 ([#412](https://github.com/promhippie/dockerhub_exporter/issues/412)) ([4c88be4](https://github.com/promhippie/dockerhub_exporter/commit/4c88be48018a58153d61fe56ddae507922999aec))
+
+### Bugfixes
+
+* **patch:** update dependency golangci-lint to v2.13.2 ([#414](https://github.com/promhippie/dockerhub_exporter/issues/414)) ([b807533](https://github.com/promhippie/dockerhub_exporter/commit/b8075336b35413a4180fa9c8077c9c7d30d954db))
+
 ## [2.14.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.13.0...v2.14.0) (2026-08-24)
 
 ### Features
