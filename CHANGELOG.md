@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.15.1](https://github.com/promhippie/dockerhub_exporter/compare/v2.15.0...v2.15.1) (2026-09-07)
+
+### Bugfixes
+
+* **deps:** update golang:1.27.1-alpine docker digest to cf6fca6 ([#418](https://github.com/promhippie/dockerhub_exporter/issues/418)) ([6eb89e6](https://github.com/promhippie/dockerhub_exporter/commit/6eb89e62b27f63dc5e81f620daa94cddf79f1d78))
+* **patch:** update dependency go to v1.27.1 ([#416](https://github.com/promhippie/dockerhub_exporter/issues/416)) ([d2ddfcc](https://github.com/promhippie/dockerhub_exporter/commit/d2ddfccb400c0b1a425d816d1997a246ca185eb0))
+* **patch:** update dependency goreleaser to v2.18.1 ([#419](https://github.com/promhippie/dockerhub_exporter/issues/419)) ([b654160](https://github.com/promhippie/dockerhub_exporter/commit/b654160eb0ca55a701dda9beb0ab60806449da64))
+* **patch:** update golang docker tag to v1.27.1 ([#417](https://github.com/promhippie/dockerhub_exporter/issues/417)) ([813e8ac](https://github.com/promhippie/dockerhub_exporter/commit/813e8acca667eeea627f34b8f73b48135963a1fa))
+
 ## [2.15.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.14.0...v2.15.0) (2026-08-31)
 
 ### Features
