@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.15.2](https://github.com/promhippie/dockerhub_exporter/compare/v2.15.1...v2.15.2) (2026-09-14)
+
+### Bugfixes
+
+* renew access token before it expires ([b7f9394](https://github.com/promhippie/dockerhub_exporter/commit/b7f9394c2f49e90b1ffa655371df14545341a1c2))
+
 ## [2.15.1](https://github.com/promhippie/dockerhub_exporter/compare/v2.15.0...v2.15.1) (2026-09-07)
 
 ### Bugfixes
