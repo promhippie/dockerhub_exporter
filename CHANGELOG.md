@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.16.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.15.2...v2.16.0) (2026-09-21)
+
+### Features
+
+* **minor:** update module github.com/urfave/cli/v3 to v3.12.0 ([#424](https://github.com/promhippie/dockerhub_exporter/issues/424)) ([c8447de](https://github.com/promhippie/dockerhub_exporter/commit/c8447de50c224f357642605fb90d75a3c4dbbd0a))
+* **minor:** update module github.com/urfave/cli/v3 to v3.13.0 ([#429](https://github.com/promhippie/dockerhub_exporter/issues/429)) ([32efcdc](https://github.com/promhippie/dockerhub_exporter/commit/32efcdcc0a50c699bf4f67e4a213cf84b2f8b00e))
+
+### Bugfixes
+
+* **deps:** update alpine:3.24 docker digest to 294b683 ([#428](https://github.com/promhippie/dockerhub_exporter/issues/428)) ([2393d11](https://github.com/promhippie/dockerhub_exporter/commit/2393d110975fa98a70833b2679fc5901c6c7bd39))
+* **deps:** update docker digests ([#426](https://github.com/promhippie/dockerhub_exporter/issues/426)) ([a435270](https://github.com/promhippie/dockerhub_exporter/commit/a43527023e4a00b06d87b0e006593369cdc247ab))
+* **deps:** update golang:1.27.1-alpine docker digest to 4cb7ac9 ([#427](https://github.com/promhippie/dockerhub_exporter/issues/427)) ([f2637a9](https://github.com/promhippie/dockerhub_exporter/commit/f2637a9cae60899d1cd4954d5fb23f60e617a7ed))
+
 ## [2.15.2](https://github.com/promhippie/dockerhub_exporter/compare/v2.15.1...v2.15.2) (2026-09-14)
 
 ### Bugfixes
