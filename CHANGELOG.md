@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.17.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.16.0...v2.17.0) (2026-10-05)
+
+### Features
+
+* **minor:** update module github.com/prometheus/exporter-toolkit to v0.20.0 ([#431](https://github.com/promhippie/dockerhub_exporter/issues/431)) ([23ab05e](https://github.com/promhippie/dockerhub_exporter/commit/23ab05ec3d29c7e8124618187dd7af7b87f1b4fc))
+* **minor:** update module github.com/urfave/cli/v3 to v3.14.0 ([#438](https://github.com/promhippie/dockerhub_exporter/issues/438)) ([131d5f0](https://github.com/promhippie/dockerhub_exporter/commit/131d5f07e58f0273b26c911e6fda06f940f992f1))
+
+### Bugfixes
+
+* **deps:** update golang:1.27.1-alpine docker digest to 8a5910f ([#430](https://github.com/promhippie/dockerhub_exporter/issues/430)) ([7ae58d8](https://github.com/promhippie/dockerhub_exporter/commit/7ae58d81ca797f7c92d41aaa999eeabf4d14d704))
+
 ## [2.16.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.15.2...v2.16.0) (2026-09-21)
 
 ### Features
