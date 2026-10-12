@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.18.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.17.0...v2.18.0) (2026-10-12)
+
+### Features
+
+* **minor:** update module github.com/go-chi/chi/v5 to v5.4.0 ([#446](https://github.com/promhippie/dockerhub_exporter/issues/446)) ([9d60c18](https://github.com/promhippie/dockerhub_exporter/commit/9d60c1812d54318b39a89752ed77014736dd35ce))
+* **minor:** update module github.com/prometheus/client_golang to v1.25.0 ([#443](https://github.com/promhippie/dockerhub_exporter/issues/443)) ([2f4ce57](https://github.com/promhippie/dockerhub_exporter/commit/2f4ce574e14927e8c690f58a3299845447b7fba2))
+
+### Bugfixes
+
+* **deps:** update golang:1.27.2-alpine docker digest to f92b6ef ([#445](https://github.com/promhippie/dockerhub_exporter/issues/445)) ([cc636fe](https://github.com/promhippie/dockerhub_exporter/commit/cc636fe3635de7308d959dc2fd47f1d48ea2eb90))
+* **patch:** update golang docker tag to v1.27.2 ([#442](https://github.com/promhippie/dockerhub_exporter/issues/442)) ([46ef0cd](https://github.com/promhippie/dockerhub_exporter/commit/46ef0cdba5c3e28a1b68d5337a92ec753651e929))
+
 ## [2.17.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.16.0...v2.17.0) (2026-10-05)
 
 ### Features
