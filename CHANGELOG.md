@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.19.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.18.0...v2.19.0) (2026-10-19)
+
+### Features
+
+* **minor:** update module github.com/go-chi/chi/v5 to v5.5.0 ([#449](https://github.com/promhippie/dockerhub_exporter/issues/449)) ([9be543f](https://github.com/promhippie/dockerhub_exporter/commit/9be543fb725542d1391216391a4d566ef8699e77))
+
 ## [2.18.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.17.0...v2.18.0) (2026-10-12)
 
 ### Features
