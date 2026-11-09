@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.19.3](https://github.com/promhippie/dockerhub_exporter/compare/v2.19.2...v2.19.3) (2026-11-09)
+
+### Bugfixes
+
+* **deps:** update alpine:3.24 docker digest to f59abe6 ([#473](https://github.com/promhippie/dockerhub_exporter/issues/473)) ([da9ddb4](https://github.com/promhippie/dockerhub_exporter/commit/da9ddb4a22c9763358154e8e352109cfe30cb646))
+* **deps:** update docker digests ([#472](https://github.com/promhippie/dockerhub_exporter/issues/472)) ([dc4c84d](https://github.com/promhippie/dockerhub_exporter/commit/dc4c84d62baaa5d47bf33d97fbd6add3dc640c95))
+* **deps:** update golang:1.27.3-alpine docker digest to fa48812 ([#471](https://github.com/promhippie/dockerhub_exporter/issues/471)) ([aba6a98](https://github.com/promhippie/dockerhub_exporter/commit/aba6a98e6e6f91f2a0b8b3dae81bf2106213ba89))
+
 ## [2.19.2](https://github.com/promhippie/dockerhub_exporter/compare/v2.19.1...v2.19.2) (2026-11-02)
 
 ### Bugfixes
