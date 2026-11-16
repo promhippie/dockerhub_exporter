@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.19.4](https://github.com/promhippie/dockerhub_exporter/compare/v2.19.3...v2.19.4) (2026-11-16)
+
+### Bugfixes
+
+* **deps:** update golang:1.27.4-alpine docker digest to 70bd7dd ([#481](https://github.com/promhippie/dockerhub_exporter/issues/481)) ([e192790](https://github.com/promhippie/dockerhub_exporter/commit/e1927908d4e16f3c620cd87df480db4aede7074f))
+* **patch:** update golang docker tag to v1.27.4 ([#475](https://github.com/promhippie/dockerhub_exporter/issues/475)) ([3be029b](https://github.com/promhippie/dockerhub_exporter/commit/3be029bef1a3a82c56802a4582db8ca62b7cda83))
+
 ## [2.19.3](https://github.com/promhippie/dockerhub_exporter/compare/v2.19.2...v2.19.3) (2026-11-09)
 
 ### Bugfixes
