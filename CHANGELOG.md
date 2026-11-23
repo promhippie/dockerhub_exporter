@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.20.0](https://github.com/promhippie/dockerhub_exporter/compare/v2.19.4...v2.20.0) (2026-11-23)
+
+### Features
+
+* **minor:** update module github.com/prometheus/exporter-toolkit to v0.21.0 ([#486](https://github.com/promhippie/dockerhub_exporter/issues/486)) ([5834567](https://github.com/promhippie/dockerhub_exporter/commit/5834567d64eee445e7fd6429e0e9d769ae0b0e5c))
+* switch to plain hugo and resolve deprecations ([ea48283](https://github.com/promhippie/dockerhub_exporter/commit/ea48283c8116d71ac865807c41f011824c7a02dc))
+
 ## [2.19.4](https://github.com/promhippie/dockerhub_exporter/compare/v2.19.3...v2.19.4) (2026-11-16)
 
 ### Bugfixes
